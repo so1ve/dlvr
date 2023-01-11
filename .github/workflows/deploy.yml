@@ -39,6 +39,6 @@ jobs:
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
-          project: dlvr
+          project: ${{ secrets.DENO_DEPLOY_PROJECT_NAME }}
           entrypoint: server/index.ts
           root: .output
