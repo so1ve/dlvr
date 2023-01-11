@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "paths": {}
+  },
+  "include": [
+    "./nitro.d.ts",
+    "../../**/*",
+    "../../src/**/*"
+  ]
+}
