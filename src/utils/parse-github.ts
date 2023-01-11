@@ -5,14 +5,6 @@ interface ParsedGithubURL {
   path: string
 }
 
-// Parse github url.
-// Example:
-// Given: /gh/owner/repo@branch/path/to/file
-// Return: { owner: 'owner', repo: 'repo', branch: 'branch', path: 'path/to/file' }
-// Given: /gh/owner/repo/path/to/file
-// Return: { owner: 'owner', repo: 'repo', branch: 'master' (or main - this is the default branch), path: 'path/to/file' }
-// Given: /gh/owner/repo
-// Return: { owner: 'owner', repo: 'repo', branch: 'master' (or main - this is the default branch), path: '' }
 const MATCHER = /^\/gh\/([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
 
 export function parseGithubURL(url: string): ParsedGithubURL {
