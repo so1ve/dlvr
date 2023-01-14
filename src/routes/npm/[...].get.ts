@@ -1,5 +1,4 @@
 export default eventHandler(async (event) => {
-  // Proxies unpkg
   const requestPath = event.path!.slice("/npm".length);
   const url = `https://unpkg.com${requestPath}`;
   let mime!: string;
