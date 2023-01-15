@@ -7,6 +7,7 @@ importers:
       '@antfu/ni': ^0.18.8
       '@babel/types': ^7.20.7
       '@so1ve/eslint-config': ^0.41.0
+      '@types/clean-css': ^4.2.6
       '@types/mime': ^3.0.1
       '@types/node': ^18.11.18
       clean-css: ^5.3.1
@@ -28,6 +29,7 @@ importers:
       '@antfu/ni': 0.18.8
       '@babel/types': 7.20.7
       '@so1ve/eslint-config': 0.41.0_7uibuqfxkfaozanbtbziikiqje
+      '@types/clean-css': 4.2.6
       '@types/mime': 3.0.1
       '@types/node': 18.11.18
       eslint: 8.32.0
@@ -770,6 +772,13 @@ packages:
 
   /@types/chai/4.3.4:
     resolution: {integrity: sha512-KnRanxnpfpjUTqTCXslZSEdLfXExwgNxYPdiO2WGUj8+HDjFi8R3k5RVKPeSCzLjCcshCAtVO2QBbVuAV4kTnw==}
+    dev: true
+
+  /@types/clean-css/4.2.6:
+    resolution: {integrity: sha512-Ze1tf+LnGPmG6hBFMi0B4TEB0mhF7EiMM5oyjLDNPE9hxrPU0W+5+bHvO+eFPA+bt0iC1zkQMoU/iGdRVjcRbw==}
+    dependencies:
+      '@types/node': 18.11.18
+      source-map: 0.6.1
     dev: true
 
   /@types/estree/1.0.0:

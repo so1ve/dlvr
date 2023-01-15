@@ -1,19 +1,11 @@
-import * as Terser from "terser";
-import CleanCSS from "clean-css";
-import type { MaybePromise } from "../types";
-
-type Minifier = (code: string) => MaybePromise<string>;
-
-const JSMinifier: Minifier = async (code: string) =>
-  await Terser.minify(
-    code,
-    { compress: true },
-  ).then(r => r.code!);
-const CSSMinifier: Minifier = (content: string) => content;
+import { JSMinifier } from "./js";
+import { CSSMinifier } from "./css";
+import { JSONMinifier } from "./json";
 
 const minifierMap = {
   "application/javascript": JSMinifier,
   "text/css": CSSMinifier,
+  "application/json": JSONMinifier,
 };
 
 export const SUPPORTED_MINIFY_MIMES = Object.keys(minifierMap);

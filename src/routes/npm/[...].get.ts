@@ -4,7 +4,7 @@ import { resolveNPMURL } from "../../config";
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);
-  const shouldMinify = !!query.minify || !!query.min;
+  const shouldMinify = query.minify !== undefined || query.min !== undefined;
   let parsed;
   try {
     parsed = parseNPMURL(event.path!);
@@ -12,19 +12,21 @@ export default eventHandler(async (event) => {
     throw createError({ message: e.message, status: 400 });
   }
   const requestURL = resolveNPMURL(parsed);
-  let mime = mimeDetector.getType(requestURL) || "text/plain";
+  let originalMime!: string;
   let res = await fetch(requestURL)
     .then((r) => {
       if (r.headers.has("Content-Type")) {
-        mime = r.headers.get("Content-Type")!;
+        originalMime = r.headers.get("Content-Type")!;
       }
+      originalMime = mimeDetector.getType(r.url) || originalMime;
       return r.arrayBuffer();
     })
     .then(r => new Uint8Array(r));
-  if (shouldMinify && SUPPORTED_MINIFY_MIMES.includes(mime)) {
-    res = await minify(res, getContentMime(mime) as any);
+  const contentMime = getContentMime(originalMime);
+  if (shouldMinify && SUPPORTED_MINIFY_MIMES.includes(contentMime)) {
+    res = await minify(res, contentMime as any);
   }
-  event.node.res.setHeader("Content-Type", mime);
+  event.node.res.setHeader("Content-Type", originalMime);
   if (parsed.version !== "latest") {
     event.node.res.setHeader("Cache-Control", MAX_CACHE);
   }

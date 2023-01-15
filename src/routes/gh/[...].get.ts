@@ -13,14 +13,21 @@ export default eventHandler(async (event) => {
     throw createError({ message: e.message, status: 400 });
   }
   const requestURL = resolveGitHubURL(parsed);
-  const mime = mimeDetector.getType(requestPath) || "text/plain";
+  let originalMime!: string;
   let res = await fetch(requestURL)
-    .then(r => r.arrayBuffer())
+    .then((r) => {
+      if (r.headers.has("Content-Type")) {
+        originalMime = r.headers.get("Content-Type")!;
+      }
+      originalMime = mimeDetector.getType(r.url) || originalMime;
+      return r.arrayBuffer();
+    })
     .then(r => new Uint8Array(r));
-  if (shouldMinify && SUPPORTED_MINIFY_MIMES.includes(mime)) {
-    res = await minify(res, getContentMime(mime) as any);
+  const contentMime = getContentMime(originalMime);
+  if (shouldMinify && SUPPORTED_MINIFY_MIMES.includes(contentMime)) {
+    res = await minify(res, contentMime as any);
   }
-  event.node.res.setHeader("Content-Type", mime);
+  event.node.res.setHeader("Content-Type", originalMime);
   event.node.res.setHeader("Cache-Control", MAX_CACHE);
   return res;
 });
