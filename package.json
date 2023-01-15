@@ -23,18 +23,24 @@
     "test": "vitest",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "clean-css": "^5.3.1",
+    "mime": "^3.0.0",
+    "terser": "^5.16.1"
+  },
   "devDependencies": {
     "@antfu/ni": "^0.18.8",
     "@babel/types": "^7.20.7",
-    "@so1ve/eslint-config": "^0.40.1",
+    "@so1ve/eslint-config": "^0.41.0",
+    "@types/mime": "^3.0.1",
     "@types/node": "^18.11.18",
-    "eslint": "^8.31.0",
+    "eslint": "^8.32.0",
     "nitropack": "npm:@so1ve/nitropack@1.0.0-feat.1",
-    "pnpm": "^7.24.3",
-    "rimraf": "^3.0.2",
+    "pnpm": "^7.25.0",
+    "rimraf": "^4.0.5",
     "typescript": "^4.9.4",
     "unplugin-auto-import": "^0.12.1",
     "vite": "^4.0.4",
-    "vitest": "^0.27.0"
+    "vitest": "^0.27.1"
   }
 }

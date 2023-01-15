@@ -6,6 +6,7 @@ export default defineNitroConfig({
   routeRules: {
     "/npm/**": { cors: true, headers: { "access-control-allowed-methods": "GET" } },
     "/gh/**": { cors: true, headers: { "access-control-allowed-methods": "GET" } },
+    "/": { prerender: true, swr: true },
   },
   rollupConfig: {
     plugins: [
