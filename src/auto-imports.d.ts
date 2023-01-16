@@ -7,7 +7,6 @@ declare global {
   const SUPPORTED_MINIFY_MIMES: typeof import('./utils/minify/index')['SUPPORTED_MINIFY_MIMES']
   const getContentMime: typeof import('./utils/mime')['getContentMime']
   const getPathOnly: typeof import('./utils/path')['getPathOnly']
-  const iImport: typeof import('./utils/isomorphic-import')['iImport']
   const invalidRequestPath: typeof import('./utils/invalid-request')['invalidRequestPath']
   const minify: typeof import('./utils/minify/index')['minify']
   const parseGithubURL: typeof import('./utils/parse')['parseGithubURL']
