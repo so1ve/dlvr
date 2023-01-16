@@ -1,8 +1,7 @@
 import { defineNitroConfig } from "nitropack";
 import AutoImport from "unplugin-auto-import/rollup";
 
-// @ts-expect-error Deno
-const external = typeof Deno !== "undefined"
+const external = process.env.NITRO_PRESET === "deno"
   ? ["esbuild"]
   : [];
 
