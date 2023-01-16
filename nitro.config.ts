@@ -1,4 +1,5 @@
 import { defineNitroConfig } from "nitropack";
+import AutoImport from "unplugin-auto-import/rollup";
 
 const external = process.env.NITRO_PRESET === "deno"
   ? ["esbuild"]
@@ -13,13 +14,15 @@ export default defineNitroConfig({
   },
   rollupConfig: {
     external,
-  },
-  imports: {
-    dirs: [
-      "./src/utils/*.ts",
-      "./src/utils/*/index.ts",
+    plugins: [
+      AutoImport({
+        dirs: [
+          "./src/utils/*.ts",
+          "./src/utils/*/index.ts",
+        ],
+        dts: "./src/auto-imports.d.ts",
+      }),
     ],
-    dts: "./src/auto-imports.d.ts",
   },
   experimental: {
     wasm: true,
