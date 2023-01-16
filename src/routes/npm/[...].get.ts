@@ -1,13 +1,14 @@
 import mimeDetector from "mime/lite";
 
-import { resolveNPMURL } from "../../config";
+import { MAX_CACHE, resolveNPMURL } from "../../config";
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);
   const shouldMinify = query.minify !== undefined || query.min !== undefined;
+  const requestPath = event.path || "";
   let parsed;
   try {
-    parsed = parseNPMURL(event.path!);
+    parsed = parseNPMURL(requestPath);
   } catch (e: any) {
     throw createError({ message: e.message, status: 400 });
   }

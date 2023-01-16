@@ -1,11 +1,11 @@
 import mimeDetector from "mime/lite";
 
-import { resolveGitHubURL } from "../../config";
+import { MAX_CACHE, resolveGitHubURL } from "../../config";
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);
   const shouldMinify = query.minify !== undefined || query.min !== undefined;
-  const requestPath = event.path!;
+  const requestPath = event.path || "";
   let parsed;
   try {
     parsed = parseGithubURL(requestPath);

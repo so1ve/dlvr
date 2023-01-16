@@ -16,7 +16,7 @@ export function parseGithubURL(url: string): ParsedGithubURL {
     owner: match[1],
     repo: match[2],
     branch: match[3] || "master",
-    path: getPathOnly(match[4]) || "",
+    path: getPathOnly(match[4] || ""),
   };
 }
 
@@ -36,6 +36,6 @@ export function parseNPMURL(url: string): ParsedNPMURL {
   return {
     package: match[1],
     version: match[2] || "latest",
-    path: getPathOnly(match[3]) || "",
+    path: getPathOnly(match[3] || ""),
   };
 }
