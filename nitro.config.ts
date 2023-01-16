@@ -18,8 +18,9 @@ export default defineNitroConfig({
         ],
       }),
     ],
-  },
-  experimental: {
-    wasm: true,
+    external: [
+      "@swc/core",
+      "esbuild",
+    ],
   },
 });

@@ -1,0 +1,23 @@
+{
+  "version": "2",
+  "remote": {
+    "https://deno.land/std@0.172.0/async/abortable.ts": "73acfb3ed7261ce0d930dbe89e43db8d34e017b063cf0eaa7d215477bf53442e",
+    "https://deno.land/std@0.172.0/async/deadline.ts": "b98e50d2c42399af03ad13bbb8cf59dadb9f0cd5d70648cc0c3b9202d75ab565",
+    "https://deno.land/std@0.172.0/async/debounce.ts": "adab11d04ca38d699444ac8a9d9856b4155e8dda2afd07ce78276c01ea5a4332",
+    "https://deno.land/std@0.172.0/async/deferred.ts": "42790112f36a75a57db4a96d33974a936deb7b04d25c6084a9fa8a49f135def8",
+    "https://deno.land/std@0.172.0/async/delay.ts": "73aa04cec034c84fc748c7be49bb15cac3dd43a57174bfdb7a4aec22c248f0dd",
+    "https://deno.land/std@0.172.0/async/mod.ts": "f04344fa21738e5ad6bea37a6bfffd57c617c2d372bb9f9dcfd118a1b622e576",
+    "https://deno.land/std@0.172.0/async/mux_async_iterator.ts": "70c7f2ee4e9466161350473ad61cac0b9f115cff4c552eaa7ef9d50c4cbb4cc9",
+    "https://deno.land/std@0.172.0/async/pool.ts": "fd082bd4aaf26445909889435a5c74334c017847842ec035739b4ae637ae8260",
+    "https://deno.land/std@0.172.0/async/retry.ts": "5efa3ba450ac0c07a40a82e2df296287b5013755d232049efd7ea2244f15b20f",
+    "https://deno.land/std@0.172.0/async/tee.ts": "47e42d35f622650b02234d43803d0383a89eb4387e1b83b5a40106d18ae36757",
+    "https://deno.land/std@0.172.0/http/server.ts": "cbb17b594651215ba95c01a395700684e569c165a567e4e04bba327f41197433",
+    "https://deno.land/x/denoflate@1.2.1/mod.ts": "f5628e44b80b3d80ed525afa2ba0f12408e3849db817d47a883b801f9ce69dd6",
+    "https://deno.land/x/denoflate@1.2.1/pkg/denoflate.js": "b9f9ad9457d3f12f28b1fb35c555f57443427f74decb403113d67364e4f2caf4",
+    "https://deno.land/x/denoflate@1.2.1/pkg/denoflate_bg.wasm.js": "d581956245407a2115a3d7e8d85a9641c032940a8e810acbd59ca86afd34d44d",
+    "https://deno.land/x/esbuild@v0.17.0/mod.d.ts": "9babf61f23be4f22863a31c47e0d08c5c5a0e7581b9620defd1d06d4b07068fd",
+    "https://deno.land/x/esbuild@v0.17.0/mod.js": "4f7a35eab22e06f544747e4c8e2ea5c9d31a7041e57320c8027c9d405c349a71",
+    "https://deno.land/x/esbuild@v0.17.0/wasm.d.ts": "9babf61f23be4f22863a31c47e0d08c5c5a0e7581b9620defd1d06d4b07068fd",
+    "https://deno.land/x/esbuild@v0.17.0/wasm.js": "2fdae44880e5828554d5769983683c6699963ed22e27a792d1ab3bdd9fd7413e"
+  }
+}
