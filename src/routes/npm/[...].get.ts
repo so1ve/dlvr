@@ -1,4 +1,4 @@
-import mimeDetector from "mime/lite";
+import mimeDetector from "mime";
 
 import { MAX_CACHE, resolveNPMURL } from "../../config";
 

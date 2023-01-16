@@ -37,7 +37,10 @@ jobs:
         run: nr build
 
       - name: Cleanup node_modules
-        run: rm -rf node_modules
+        run: |
+          rm -rf .nitro
+          rm -rf node_modules
+          rm -rf src
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1

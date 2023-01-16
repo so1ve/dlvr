@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@swc/core": "https://x.nest.land/swc@0.3.2/mod.ts"
+    "esbuild": "https://deno.land/x/esbuild@v0.17.0/mod.js"
   }
 }

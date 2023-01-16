@@ -5,6 +5,7 @@ declare global {
   const JSMinifier: typeof import('./utils/minify/js')['JSMinifier']
   const JSONMinifier: typeof import('./utils/minify/json')['JSONMinifier']
   const SUPPORTED_MINIFY_MIMES: typeof import('./utils/minify/index')['SUPPORTED_MINIFY_MIMES']
+  const esbuildMinify: typeof import('./utils/esbuild')['esbuildMinify']
   const getContentMime: typeof import('./utils/mime')['getContentMime']
   const getPathOnly: typeof import('./utils/path')['getPathOnly']
   const invalidRequestPath: typeof import('./utils/invalid-request')['invalidRequestPath']
