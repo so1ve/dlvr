@@ -12,7 +12,7 @@ const checkBanned = (parsed: ParsedGithubURL, bannedList: GitHubBanned) => {
       && bannedKeys.includes("owner")
       && banned.owner === parsed.owner
     ) {
-      throw fatalError({ message: `Banned owner: ${parsed.owner}`, statusText: "Forbidden", status: 403 });
+      throw fatalError({ message: `Banned owner: ${parsed.owner}`, status: 403 });
     }
     if (
       bannedKeys.length === 2
@@ -23,7 +23,7 @@ const checkBanned = (parsed: ParsedGithubURL, bannedList: GitHubBanned) => {
       && banned.owner === parsed.owner
       && banned.repo === parsed.repo
     ) {
-      throw fatalError({ message: `Banned repo: ${parsed.owner}/${parsed.repo}`, statusText: "Forbidden", status: 403 });
+      throw fatalError({ message: `Banned repo: ${parsed.owner}/${parsed.repo}`, status: 403 });
     }
   }
 };

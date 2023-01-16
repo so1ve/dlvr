@@ -10,7 +10,7 @@ const GITHUB_MATCHER = /^\/gh\/([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
 export function parseGithubURL(url: string): ParsedGithubURL {
   const match = GITHUB_MATCHER.exec(url);
   if (!match) {
-    throw fatalError({ message: `Invalid GitHub url: ${url}` });
+    throw fatalError({ message: `Invalid GitHub url: ${url}`, status: 400 });
   }
   return {
     owner: match[1],
@@ -32,7 +32,7 @@ const NPM_MATCHER = /^\/npm\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
 export function parseNPMURL(url: string): ParsedNPMURL {
   const match = NPM_MATCHER.exec(url);
   if (!match) {
-    throw fatalError({ message: `Invalid NPM url: ${url}` });
+    throw fatalError({ message: `Invalid NPM url: ${url}`, status: 400 });
   }
   return {
     package: match[1],

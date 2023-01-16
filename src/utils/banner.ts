@@ -1,7 +1,7 @@
 import { LINK_BANNER } from "../config";
 import type { MaybeArray } from "../types";
 
-export const generateBanner = (_text: MaybeArray<string>) => {
+export const createBanner = (_text: MaybeArray<string>) => {
   const text = [
     ...toArray(_text),
     ...LINK_BANNER,

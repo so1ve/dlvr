@@ -13,7 +13,7 @@ export default eventHandler(async (event) => {
     throw fatalError({ message: e.message, status: 400 });
   }
   if (BANNED_NPM_PACKAGES.includes(parsed.package)) {
-    throw fatalError({ message: `Banned package: ${parsed.package}`, statusText: "Forbidden", status: 403 });
+    throw fatalError({ message: `Banned package: ${parsed.package}`, status: 403 });
   }
   const requestURL = resolveNPMURL(parsed);
   let originalMime!: string;
