@@ -2,12 +2,7 @@
   "github": {
     "silent": true
   },
-  "builds": [
-    {
-      "src": "./.output/server/index.mjs",
-      "use": "@vercel/node"
-    }
-  ],
+  "buildCommand": "pnpm run build",
   "routes": [
     {
       "src": "/(.*)",
