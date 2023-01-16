@@ -10,6 +10,7 @@ export default defineNitroConfig({
   },
   rollupConfig: {
     plugins: [
+      // Cannot use built-in unimport since it lacks support of subdir import.
       AutoImport({
         dts: "./src/auto-imports.d.ts",
         dirs: [
@@ -17,5 +18,8 @@ export default defineNitroConfig({
         ],
       }),
     ],
+  },
+  experimental: {
+    wasm: true,
   },
 });
