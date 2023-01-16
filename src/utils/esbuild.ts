@@ -1,9 +1,17 @@
 import * as esbuild from "esbuild";
 
+let initialized = false;
+
 export const esbuildMinify = async (code: string, options?: esbuild.TransformOptions) => {
-  await esbuild.initialize({
-    worker: false,
-  });
+  if (!initialized) {
+    // @ts-expect-error Deno
+    if (typeof Deno !== "undefined") {
+      await esbuild.initialize({
+        worker: false,
+      });
+    }
+    initialized = true;
+  }
   return await esbuild.transform(code, {
     ...options,
     minify: true,
