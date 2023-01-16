@@ -1,5 +1,9 @@
 import * as esbuild from "esbuild";
 
+import versions from "../../versions.json";
+
+export const ESBUILD_VERSION = versions.esbuild;
+
 let initialized = false;
 
 export const esbuildMinify = async (code: string, options?: esbuild.TransformOptions) => {
