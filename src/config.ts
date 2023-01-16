@@ -14,8 +14,5 @@ export const BANNED_NPM_PACKAGES: NPMBanned = [
 
 ];
 export const BANNED_GITHUB: GitHubBanned = [
-  {
-    owner: "foo",
-    repo: "bar",
-  },
+
 ];
