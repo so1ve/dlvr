@@ -41,7 +41,7 @@ jobs:
           rm -rf .nitro
           rm -rf node_modules
           rm -rf src
-      
+
       - name: Move import map to .output
         run: mv import_map.json .output/import_map.json
 
