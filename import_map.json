@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@swc/core": "https://x.nest.land/swc@0.3.2/mod.ts"
+  }
+}
