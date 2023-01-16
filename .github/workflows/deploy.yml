@@ -36,7 +36,7 @@ jobs:
       - name: Build
         run: nr build
 
-      - name: Cleanup node_modules
+      - name: Cleanup
         run: |
           rm -rf .nitro
           rm -rf node_modules
