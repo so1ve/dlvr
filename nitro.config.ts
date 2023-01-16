@@ -27,4 +27,5 @@ export default defineNitroConfig({
   experimental: {
     wasm: true,
   },
+  minify: true,
 });
