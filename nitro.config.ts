@@ -1,4 +1,5 @@
 import { defineNitroConfig } from "nitropack";
+
 const external = process.env.NITRO_PRESET === "deno"
   ? ["esbuild"]
   : [];
