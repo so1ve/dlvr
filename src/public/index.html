@@ -2,7 +2,7 @@
 <html lang="en-US">
     <head>
         <title>DLVR</title>
-        <link rel="stylesheet" href="/gh/BigCoke233/textretty.css@2.0.0/textretty.css">
+        <link rel="stylesheet" href="/gh/BigCoke233/textretty.css@2.0.0/textretty.css?min">
         <style>
         .main {
             max-width: 700px;
@@ -33,6 +33,20 @@
             <pre>
 <code>/gh/[USER]/[REPO]@[BRANCH]/[PATH]</code>
 </pre>
+            <h2>可选参数</h2>
+            <ul>
+                <li>
+                    <code>min</code>
+                    &nbsp;/&nbsp;<code>minify</code>：是否压缩（目前支持JS、JSON、CSS）
+                    <p>
+                        例如：
+                    <pre>
+<code>/npm/nprogress/nprogress.css?min</code>
+</pre>
+                        出于稳定性考虑，我们不使用JSDelivr风格的.min.ext压缩方式。倘若作者在日后加上了对应的min文件，这将有可能导致原本的文件（经过DLVR压缩后）和作者添加的文件内容不匹配。
+                    </p>
+                </li>
+            </ul>
             Powered by <a target="_blank" rel="noopener noreferer" href="https://github.com/so1ve/dlvr">DLVR</a>
         </article>
     </body>

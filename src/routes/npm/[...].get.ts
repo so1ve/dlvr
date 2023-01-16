@@ -1,6 +1,6 @@
 import mimeDetector from "mime";
 
-import { MAX_CACHE, resolveNPMURL } from "../../config";
+import { BANNED_NPM_PACKAGES, MAX_CACHE, resolveNPMURL } from "../../config";
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);
@@ -10,7 +10,10 @@ export default eventHandler(async (event) => {
   try {
     parsed = parseNPMURL(requestPath);
   } catch (e: any) {
-    throw createError({ message: e.message, status: 400 });
+    throw fatalError({ message: e.message, status: 400 });
+  }
+  if (BANNED_NPM_PACKAGES.includes(parsed.package)) {
+    throw fatalError({ message: `Banned package: ${parsed.package}`, status: 403 });
   }
   const requestURL = resolveNPMURL(parsed);
   let originalMime!: string;
@@ -24,8 +27,9 @@ export default eventHandler(async (event) => {
     })
     .then(r => new Uint8Array(r));
   const contentMime = getContentMime(originalMime);
-  if (shouldMinify && SUPPORTED_MINIFY_MIMES.includes(contentMime)) {
-    res = await minify(res, contentMime as any);
+  const extension = getExtension(parsed.path) || mimeDetector.getExtension(contentMime);
+  if (shouldMinify && extension && SUPPORTED_MINIFY_EXTENSIONS.includes(extension)) {
+    res = await minify(res, extension as any);
   }
   event.node.res.setHeader("Content-Type", originalMime);
   if (parsed.version !== "latest") {

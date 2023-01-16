@@ -10,7 +10,7 @@ const GITHUB_MATCHER = /^\/gh\/([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
 export function parseGithubURL(url: string): ParsedGithubURL {
   const match = GITHUB_MATCHER.exec(url);
   if (!match) {
-    throw createError({ message: `Invalid GitHub url: ${url}`, fatal: true });
+    throw fatalError({ message: `Invalid GitHub url: ${url}` });
   }
   return {
     owner: match[1],
@@ -26,12 +26,13 @@ export interface ParsedNPMURL {
   path: string
 }
 
+// TODO: Support org package (@org/pkg)
 const NPM_MATCHER = /^\/npm\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
 
 export function parseNPMURL(url: string): ParsedNPMURL {
   const match = NPM_MATCHER.exec(url);
   if (!match) {
-    throw createError({ message: `Invalid NPM url: ${url}`, fatal: true });
+    throw fatalError({ message: `Invalid NPM url: ${url}` });
   }
   return {
     package: match[1],
