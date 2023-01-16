@@ -3,9 +3,9 @@ export {}
 declare global {
   const ESBUILD_VERSION: typeof import('./utils/esbuild')['ESBUILD_VERSION']
   const SUPPORTED_MINIFY_EXTENSIONS: typeof import('./utils/minify/index')['SUPPORTED_MINIFY_EXTENSIONS']
+  const createBanner: typeof import('./utils/banner')['createBanner']
   const esbuildMinify: typeof import('./utils/esbuild')['esbuildMinify']
   const fatalError: typeof import('./utils/error')['fatalError']
-  const generateBanner: typeof import('./utils/banner')['generateBanner']
   const getContentMime: typeof import('./utils/mime')['getContentMime']
   const getExtension: typeof import('./utils/path')['getExtension']
   const getPathOnly: typeof import('./utils/path')['getPathOnly']
