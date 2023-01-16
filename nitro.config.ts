@@ -1,6 +1,11 @@
 import { defineNitroConfig } from "nitropack";
 import AutoImport from "unplugin-auto-import/rollup";
 
+// @ts-expect-error Deno
+const external = typeof Deno !== "undefined"
+  ? ["esbuild"]
+  : [];
+
 export default defineNitroConfig({
   srcDir: "./src",
   routeRules: {
@@ -18,9 +23,9 @@ export default defineNitroConfig({
         ],
       }),
     ],
-    external: [
-      "@swc/core",
-      "esbuild",
-    ],
+    external,
+  },
+  experimental: {
+    wasm: true,
   },
 });
