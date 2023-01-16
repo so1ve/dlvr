@@ -8,5 +8,5 @@ const JS_BANNER = `/**
  */
 `;
 export const JSMinifier: Minifier = async (code: string) =>
-  await Terser.minify(code, { output: { comments: false } })
+  await Terser.minify(code, { compress: { reduce_vars: false }, output: { comments: false } })
     .then(r => JS_BANNER + r.code!);
