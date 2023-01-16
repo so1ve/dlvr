@@ -1,0 +1,17 @@
+{
+  "github": {
+    "silent": true
+  },
+  "builds": [
+    {
+      "src": "./.output/server/index.mjs",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "./.output/server/index.mjs"
+    }
+  ]
+}
