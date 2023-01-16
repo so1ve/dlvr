@@ -1,14 +1,12 @@
 import { defineNitroConfig } from "nitropack";
 import AutoImport from "unplugin-auto-import/rollup";
 
-import { DenoFixPlugin } from "./plugins/deno-fix";
-
 export default defineNitroConfig({
   srcDir: "./src",
   routeRules: {
     "/npm/**": { cors: true, headers: { "access-control-allowed-methods": "GET" } },
     "/gh/**": { cors: true, headers: { "access-control-allowed-methods": "GET" } },
-    // "/": { prerender: true, swr: true },
+    "/": { prerender: true, swr: true },
   },
   rollupConfig: {
     plugins: [
@@ -19,7 +17,6 @@ export default defineNitroConfig({
           "./src/utils/**",
         ],
       }),
-      DenoFixPlugin(),
     ],
     external: [
       "@swc/core",

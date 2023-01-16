@@ -41,10 +41,14 @@ jobs:
           rm -rf .nitro
           rm -rf node_modules
           rm -rf src
+      
+      - name: Move import map to .output
+        run: mv import_map.json .output/import_map.json
 
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: ${{ secrets.DENO_DEPLOY_PROJECT_NAME }}
-          entrypoint: .output/server/index.ts
+          root: .output
+          entrypoint: server/index.ts
           import-map: ./import_map.json
