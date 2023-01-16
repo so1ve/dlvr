@@ -36,12 +36,9 @@ jobs:
       - name: Build
         run: nr build
 
-      - name: Cleanup
-        run: rm -rf node_modules
-
       - name: Deploy to Deno Deploy
         uses: denoland/deployctl@v1
         with:
           project: ${{ secrets.DENO_DEPLOY_PROJECT_NAME }}
-          entrypoint: .output/server/index.ts
-          import-map: ./import_map.json
+          entrypoint: server/index.ts
+          root: .output
