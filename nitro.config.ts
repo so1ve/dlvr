@@ -16,7 +16,8 @@ export default defineNitroConfig({
   },
   imports: {
     dirs: [
-      "./src/utils/**",
+      "./src/utils/*.ts",
+      "./src/utils/*/index.ts",
     ],
     dts: "./src/auto-imports.d.ts",
   },
