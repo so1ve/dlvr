@@ -2,7 +2,7 @@
   "github": {
     "silent": true
   },
-  "buildCommand": "pnpm run build",
+  "buildCommand": "pnpm run build && rm -rf .output/node_modules",
   "routes": [
     {
       "src": "/(.*)",
