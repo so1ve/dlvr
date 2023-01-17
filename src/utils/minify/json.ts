@@ -1,3 +1,1 @@
-import type { Minifier } from "../../types";
-
-export const JSONMinifier: Minifier = (content: string) => JSON.stringify(JSON.parse(content));
+export const JSONMinifier = defineMinifier((code: string) => JSON.stringify(JSON.parse(code)));
