@@ -26,7 +26,6 @@
     "postinstall": "nr sync-import-map"
   },
   "dependencies": {
-    "@vercel/node": "^2.8.11",
     "esbuild": "^0.17.0",
     "mime": "^3.0.0",
     "unplugin-auto-import": "^0.12.1"
