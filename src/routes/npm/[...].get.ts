@@ -9,7 +9,7 @@ export default eventHandler(async (event) => {
   const requestPath = event.path || "";
   let parsed: ParsedNPMURL;
   try {
-    parsed = parseNPMURL(requestPath);
+    parsed = parseNPMURL(getPathOnly(requestPath));
   } catch (e: any) {
     throw fatalError({ message: e.message, status: 400 });
   }

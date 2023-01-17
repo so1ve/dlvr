@@ -34,7 +34,7 @@ export default eventHandler(async (event) => {
   const requestPath = event.path || "";
   let parsed: ParsedGithubURL;
   try {
-    parsed = parseGithubURL(requestPath);
+    parsed = parseGithubURL(getPathOnly(requestPath));
   } catch (e: any) {
     throw fatalError({ message: e.message, status: 400 });
   }
