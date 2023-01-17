@@ -1,12 +1,13 @@
 import mimeDetector from "mime";
 
 import { BANNED_NPM_PACKAGES, MAX_CACHE, resolveNPMURL } from "../../config";
+import type { ParsedNPMURL } from "../../utils/parse";
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);
   const shouldMinify = query.minify !== undefined || query.min !== undefined;
   const requestPath = event.path || "";
-  let parsed;
+  let parsed: ParsedNPMURL;
   try {
     parsed = parseNPMURL(requestPath);
   } catch (e: any) {
@@ -19,6 +20,9 @@ export default eventHandler(async (event) => {
   let originalMime!: string;
   let res = await fetch(requestURL)
     .then((r) => {
+      if (r.status === 404) {
+        throw fatalError({ message: `Package not found: ${parsed.package}`, status: 404 });
+      }
       if (r.headers.has("Content-Type")) {
         originalMime = r.headers.get("Content-Type")!;
       }

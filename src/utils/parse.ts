@@ -5,7 +5,7 @@ export interface ParsedGithubURL {
   path: string
 }
 
-const GITHUB_MATCHER = /^\/gh\/([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
+const GITHUB_MATCHER = /^\/gh\/([a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38})\/([a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38})(?:@([^/]+))?(?:\/(.*))?$/;
 
 export function parseGithubURL(url: string): ParsedGithubURL {
   const match = GITHUB_MATCHER.exec(url);
@@ -26,8 +26,7 @@ export interface ParsedNPMURL {
   path: string
 }
 
-// TODO: Support org package (@org/pkg)
-const NPM_MATCHER = /^\/npm\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
+const NPM_MATCHER = /^\/npm\/((?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*)(?:@([^/]+))?(?:\/(.*))?$/;
 
 export function parseNPMURL(url: string): ParsedNPMURL {
   const match = NPM_MATCHER.exec(url);
