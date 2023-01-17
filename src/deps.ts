@@ -1,5 +1,5 @@
 export const versions = {
-  esbuild: "0.17.0",
+  esbuild: "0.17.2",
 };
 
 export const externals = [
