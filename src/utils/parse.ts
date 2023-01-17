@@ -5,7 +5,7 @@ export interface ParsedGithubURL {
   path: string
 }
 
-const GITHUB_MATCHER = /^\/gh\/([a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38})\/([a-z\d](?:[a-z\d]|-(?=[a-z\d])){0,38})(?:@([^/]+))?(?:\/(.*))?$/;
+const GITHUB_MATCHER = /^\/gh\/([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
 
 export function parseGithubURL(url: string): ParsedGithubURL {
   const match = GITHUB_MATCHER.exec(url);
