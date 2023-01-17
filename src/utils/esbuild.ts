@@ -1,6 +1,6 @@
 import * as esbuild from "esbuild";
 
-import versions from "../../versions.json";
+import { versions } from "../deps";
 
 export const ESBUILD_VERSION = versions.esbuild;
 

@@ -1,8 +1,10 @@
 import { defineNitroConfig } from "nitropack";
 import AutoImport from "unplugin-auto-import/rollup";
 
+import { externals } from "./src/deps";
+
 const external = process.env.NITRO_PRESET === "deno"
-  ? ["esbuild"]
+  ? externals
   : [];
 
 export default defineNitroConfig({
