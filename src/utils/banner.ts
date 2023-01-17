@@ -9,6 +9,6 @@ export const createBanner = (_text: MaybeArray<string>) => {
   let str = "/**\n";
   str += text.map(t => ` * ${t}\n`)
     .join("");
-  str += " */";
+  str += " */\n";
   return str;
 };

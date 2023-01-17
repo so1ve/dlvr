@@ -32,7 +32,7 @@ export default eventHandler(async (event) => {
   const query = getQuery(event);
   const shouldMinify = query.minify !== undefined || query.min !== undefined;
   const requestPath = event.path || "";
-  let parsed;
+  let parsed: ParsedGithubURL;
   try {
     parsed = parseGithubURL(requestPath);
   } catch (e: any) {
@@ -40,13 +40,17 @@ export default eventHandler(async (event) => {
   }
   checkBanned(parsed, BANNED_GITHUB);
   const requestURL = resolveGitHubURL(parsed);
-  let originalMime!: string;
+  let originalMime = "";
   let res = await fetch(requestURL)
     .then((r) => {
       if (r.headers.has("Content-Type")) {
         originalMime = r.headers.get("Content-Type")!;
       }
+      const extraMime = getExtraMime(originalMime);
       originalMime = mimeDetector.getType(r.url) || originalMime;
+      if (extraMime) {
+        originalMime += `; ${extraMime}`;
+      }
       return r.arrayBuffer();
     })
     .then(r => new Uint8Array(r));

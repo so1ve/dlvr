@@ -8,6 +8,7 @@ declare global {
   const fatalError: typeof import('./utils/error')['fatalError']
   const getContentMime: typeof import('./utils/mime')['getContentMime']
   const getExtension: typeof import('./utils/path')['getExtension']
+  const getExtraMime: typeof import('./utils/mime')['getExtraMime']
   const getPathOnly: typeof import('./utils/path')['getPathOnly']
   const invalidRequestPath: typeof import('./utils/invalid-request')['invalidRequestPath']
   const minify: typeof import('./utils/minify/index')['minify']
