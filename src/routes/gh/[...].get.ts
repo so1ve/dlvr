@@ -43,6 +43,12 @@ export default eventHandler(async (event) => {
   let originalMime = "";
   let res = await fetch(requestURL)
     .then((r) => {
+      if (r.status === 400) {
+        throw fatalError({ message: `Bad request: ${parsed.owner}/${parsed.repo}`, status: 400 });
+      }
+      if (r.status === 404 && parsed.path) {
+        throw fatalError({ message: `File not found: ${parsed.owner}/${parsed.repo}/${parsed.path}`, status: 404 });
+      }
       if (r.headers.has("Content-Type")) {
         originalMime = r.headers.get("Content-Type")!;
       }
