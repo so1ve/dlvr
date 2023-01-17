@@ -22,8 +22,8 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
-    "sync-import-map": "tsx scripts/sync-import-map.ts",
-    "postinstall": "nr sync-import-map"
+    "sync-deps": "tsx scripts/sync-deps.ts",
+    "postinstall": "nr sync-deps"
   },
   "dependencies": {
     "esbuild": "^0.17.0",
