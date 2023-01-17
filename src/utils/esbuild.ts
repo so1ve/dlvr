@@ -22,5 +22,6 @@ export const esbuildMinify = async (code: string, options?: esbuild.TransformOpt
     minifyIdentifiers: true,
     minifySyntax: true,
     minifyWhitespace: true,
+    keepNames: false,
   }).then(r => r.code);
 };
