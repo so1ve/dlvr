@@ -19,9 +19,14 @@ export default eventHandler(async (event) => {
   const requestURL = resolveNPMURL(parsed);
   let originalMime!: string;
   let res = await fetch(requestURL)
-    .then((r) => {
+    .then(async (r) => {
+      const text = await r.text();
       if (r.status === 404) {
-        throw fatalError({ message: `Package not found: ${parsed.package}`, status: 404 });
+        if (text.startsWith("Cannot find package")) {
+          throw fatalError({ message: text, status: 404 });
+        } else {
+          throw fatalError({ message: `File not found: ${parsed.package}/${parsed.path}`, status: 404 });
+        }
       }
       if (r.headers.has("Content-Type")) {
         originalMime = r.headers.get("Content-Type")!;
