@@ -22,6 +22,7 @@
     "lint:fix": "eslint . --fix",
     "test": "vitest",
     "typecheck": "tsc --noEmit",
+    "commit": "mcz",
     "sync-deps": "tsx scripts/sync-deps.ts",
     "postinstall": "nr sync-deps"
   },
@@ -33,12 +34,14 @@
   "devDependencies": {
     "@antfu/ni": "^0.18.8",
     "@babel/types": "^7.20.7",
+    "@mini-cz/config-default": "^0.1.2",
     "@so1ve/eslint-config": "^0.41.0",
     "@types/clean-css": "^4.2.6",
     "@types/micromatch": "^4.0.2",
     "@types/mime": "^3.0.1",
     "@types/node": "^18.11.18",
     "eslint": "^8.32.0",
+    "mini-cz": "^0.1.2",
     "nitropack": "npm:@so1ve/nitropack@1.0.0-feat.1",
     "pnpm": "^7.25.0",
     "rimraf": "^4.1.1",
