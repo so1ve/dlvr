@@ -5,7 +5,7 @@ export interface ParsedGithubURL {
   path: string
 }
 
-export const GITHUB_MATCHER = /^([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
+export const GITHUB_MATCHER = /^([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))$/;
 
 export function parseGithubURL(url: string): ParsedGithubURL {
   const match = GITHUB_MATCHER.exec(url);
