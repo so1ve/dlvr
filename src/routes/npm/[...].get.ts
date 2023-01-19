@@ -1,7 +1,16 @@
+import picomatch from "picomatch";
 import mimeDetector from "mime";
 
-import { BANNED_NPM_PACKAGES, MAX_CACHE, resolveNPMURL } from "../../config";
+import { BANNED_NPM, MAX_CACHE, resolveNPMURL } from "../../config";
+import type { NPMBannedList } from "../../types";
 import type { ParsedNPMURL } from "../../utils/parse";
+
+const PREFIX = "/npm/";
+
+const isBanned = (bannedList: NPMBannedList, url: string) => {
+  const matcher = picomatch(bannedList, { dot: true });
+  return matcher(url);
+};
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);
@@ -9,12 +18,13 @@ export default eventHandler(async (event) => {
   const requestPath = event.path || "";
   let parsed: ParsedNPMURL;
   try {
-    parsed = parseNPMURL(getPathOnly(requestPath));
+    parsed = parseNPMURL(getPathOnly(requestPath).slice(PREFIX.length));
   } catch (e: any) {
     throw fatalError({ message: e.message, status: 400 });
   }
-  if (BANNED_NPM_PACKAGES.includes(parsed.package)) {
-    throw fatalError({ message: `Banned package: ${parsed.package}`, status: 403 });
+  const normalizedPath = generateNPMURL(parsed);
+  if (isBanned(BANNED_NPM, normalizedPath)) {
+    throw fatalError({ message: "This package / version / file is banned.", status: 403 });
   }
   const requestURL = resolveNPMURL(parsed);
   let originalMime!: string;

@@ -2,11 +2,15 @@
 export {}
 declare global {
   const ESBUILD_VERSION: typeof import('./utils/esbuild')['ESBUILD_VERSION']
+  const GITHUB_MATCHER: typeof import('./utils/parse')['GITHUB_MATCHER']
+  const NPM_MATCHER: typeof import('./utils/parse')['NPM_MATCHER']
   const SUPPORTED_MINIFY_EXTENSIONS: typeof import('./utils/minify/index')['SUPPORTED_MINIFY_EXTENSIONS']
   const createBanner: typeof import('./utils/banner')['createBanner']
   const defineMinifier: typeof import('./utils/helpers')['defineMinifier']
   const esbuildMinify: typeof import('./utils/esbuild')['esbuildMinify']
   const fatalError: typeof import('./utils/error')['fatalError']
+  const generateGitHubURL: typeof import('./utils/parse')['generateGitHubURL']
+  const generateNPMURL: typeof import('./utils/parse')['generateNPMURL']
   const getContentMime: typeof import('./utils/mime')['getContentMime']
   const getExtension: typeof import('./utils/path')['getExtension']
   const getExtraMime: typeof import('./utils/mime')['getExtraMime']

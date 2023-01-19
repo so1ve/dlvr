@@ -1,31 +1,15 @@
+import picomatch from "picomatch";
 import mimeDetector from "mime";
 
 import { BANNED_GITHUB, MAX_CACHE, resolveGitHubURL } from "../../config";
-import type { GitHubBanned } from "../../types";
+import type { GitHubBannedList } from "../../types";
 import type { ParsedGithubURL } from "../../utils/parse";
 
-const checkBanned = (parsed: ParsedGithubURL, bannedList: GitHubBanned) => {
-  for (const banned of bannedList) {
-    const bannedKeys = Object.keys(banned) as (keyof ParsedGithubURL)[];
-    if (
-      bannedKeys.length === 1
-      && bannedKeys.includes("owner")
-      && banned.owner === parsed.owner
-    ) {
-      throw fatalError({ message: `Banned owner: ${parsed.owner}`, status: 403 });
-    }
-    if (
-      bannedKeys.length === 2
-      && bannedKeys.includes("owner")
-      // Actually we can use bannedKeys.includes("repo")
-      // But we use 'in' for better type :)
-      && "repo" in banned
-      && banned.owner === parsed.owner
-      && banned.repo === parsed.repo
-    ) {
-      throw fatalError({ message: `Banned repo: ${parsed.owner}/${parsed.repo}`, status: 403 });
-    }
-  }
+const PREFIX = "/gh/";
+
+const isBanned = (bannedList: GitHubBannedList, url: string) => {
+  const matcher = picomatch(bannedList, { dot: true });
+  return matcher(url);
 };
 
 export default eventHandler(async (event) => {
@@ -34,11 +18,14 @@ export default eventHandler(async (event) => {
   const requestPath = event.path || "";
   let parsed: ParsedGithubURL;
   try {
-    parsed = parseGithubURL(getPathOnly(requestPath));
+    parsed = parseGithubURL(getPathOnly(requestPath).slice(PREFIX.length));
   } catch (e: any) {
     throw fatalError({ message: e.message, status: 400 });
   }
-  checkBanned(parsed, BANNED_GITHUB);
+  const normalizedPath = generateGitHubURL(parsed);
+  if (isBanned(BANNED_GITHUB, normalizedPath)) {
+    throw fatalError({ message: "This owner / repo / branch / file is banned.", status: 403 });
+  }
   const requestURL = resolveGitHubURL(parsed);
   let originalMime = "";
   let res = await fetch(requestURL)

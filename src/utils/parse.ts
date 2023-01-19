@@ -5,7 +5,7 @@ export interface ParsedGithubURL {
   path: string
 }
 
-const GITHUB_MATCHER = /^\/gh\/([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
+export const GITHUB_MATCHER = /^([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))?$/;
 
 export function parseGithubURL(url: string): ParsedGithubURL {
   const match = GITHUB_MATCHER.exec(url);
@@ -20,13 +20,15 @@ export function parseGithubURL(url: string): ParsedGithubURL {
   };
 }
 
+export const generateGitHubURL = ({ owner, repo, branch, path }: ParsedGithubURL) => `${owner}/${repo}@${branch}/${path}`;
+
 export interface ParsedNPMURL {
-  package: string
+  pkg: string
   version: string
   path: string
 }
 
-const NPM_MATCHER = /^\/npm\/((?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*)(?:@([^/]+))?(?:\/(.*))?$/;
+export const NPM_MATCHER = /^((?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*)(?:@([^/]+))?(?:\/(.*))?$/;
 
 export function parseNPMURL(url: string): ParsedNPMURL {
   const match = NPM_MATCHER.exec(url);
@@ -34,8 +36,10 @@ export function parseNPMURL(url: string): ParsedNPMURL {
     throw fatalError({ message: `Invalid NPM url: ${url}`, status: 400 });
   }
   return {
-    package: match[1],
+    pkg: match[1],
     version: match[2] || "latest",
     path: getPathOnly(match[3] || ""),
   };
 }
+
+export const generateNPMURL = ({ pkg, version, path }: ParsedNPMURL) => `${pkg}@${version}/${path}`;

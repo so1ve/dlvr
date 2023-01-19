@@ -9,5 +9,5 @@ export type NPMURLResolver = (parsed: ParsedNPMURL) => string;
 
 export type Minifier = (code: string) => MaybePromise<string>;
 
-export type NPMBanned = string[];
-export type GitHubBanned = Partial<Pick<ParsedGithubURL, "owner"> | Pick<ParsedGithubURL, "owner" | "repo">>[];
+export type NPMBannedList = string[];
+export type GitHubBannedList = string[];
