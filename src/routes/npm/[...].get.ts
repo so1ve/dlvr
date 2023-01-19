@@ -1,16 +1,9 @@
-import picomatch from "picomatch";
 import mimeDetector from "mime";
 
 import { BANNED_NPM, MAX_CACHE, resolveNPMURL } from "../../config";
-import type { NPMBannedList } from "../../types";
 import type { ParsedNPMURL } from "../../utils/parse";
 
 const PREFIX = "/npm/";
-
-const isBanned = (bannedList: NPMBannedList, url: string) => {
-  const matcher = picomatch(bannedList, { dot: true });
-  return matcher(url);
-};
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);

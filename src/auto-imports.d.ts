@@ -16,6 +16,7 @@ declare global {
   const getExtraMime: typeof import('./utils/mime')['getExtraMime']
   const getPathOnly: typeof import('./utils/path')['getPathOnly']
   const invalidRequestPath: typeof import('./utils/invalid-request')['invalidRequestPath']
+  const isBanned: typeof import('./utils/ban')['isBanned']
   const minify: typeof import('./utils/minify/index')['minify']
   const parseGithubURL: typeof import('./utils/parse')['parseGithubURL']
   const parseNPMURL: typeof import('./utils/parse')['parseNPMURL']

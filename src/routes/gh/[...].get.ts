@@ -1,16 +1,9 @@
-import picomatch from "picomatch";
 import mimeDetector from "mime";
 
 import { BANNED_GITHUB, MAX_CACHE, resolveGitHubURL } from "../../config";
-import type { GitHubBannedList } from "../../types";
 import type { ParsedGithubURL } from "../../utils/parse";
 
 const PREFIX = "/gh/";
-
-const isBanned = (bannedList: GitHubBannedList, url: string) => {
-  const matcher = picomatch(bannedList, { dot: true });
-  return matcher(url);
-};
 
 export default eventHandler(async (event) => {
   const query = getQuery(event);
