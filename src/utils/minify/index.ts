@@ -18,3 +18,5 @@ type SupportedMinifyExtensions = keyof typeof minifierMap;
 
 export const minify = async (content: Uint8Array, mime: SupportedMinifyExtensions) =>
   stringToUint8Array(await minifierMap[mime](uint8ArrayToString(content)));
+
+export const minifyString = async (code: string, mime: SupportedMinifyExtensions) => await minifierMap[mime](code);
