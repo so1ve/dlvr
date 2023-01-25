@@ -8,8 +8,8 @@ const depsNeedReplace: ImportsVersionsDeps = {
   esbuild: "https://deno.land/x/esbuild@v%s/wasm.js",
 };
 
-const depsVersionOnly = [
-  "html-minifier",
+const depsVersionOnly: string[] = [
+  "html-minifier-terser",
 ];
 
 const generateImportMap = async (imports: ImportsVersionsDeps) => {

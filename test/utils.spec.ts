@@ -56,9 +56,9 @@ describe("utils", () => {
 </html>`;
       expect(await minifyString(html, "html")).toMatchInlineSnapshot(`
         "<!--
-          This HTML file is minified by DLVR using html-minifier@4.0.0.
+          This HTML file is minified by DLVR using html-minifier-terser@7.1.0.
           DLVR: https://github.com/so1ve/dlvr
-          html-minifier: https://github.com/kangax/html-minifier
+          html-minifier-terser: https://github.com/terser/html-minifier-terser
         -->
         <html><head><title>Test</title></head><body><div class=foo><p>bar</p></div></body></html>"
       `);
