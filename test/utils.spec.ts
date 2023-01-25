@@ -8,7 +8,7 @@ describe("utils", () => {
   kons.log(foo)`;
       expect(await minifyString(js, "js")).toMatchInlineSnapshot(`
         "/**
-         * This JavaScript file is minified by DLVR using esbuild@0.17.3.
+         * This JavaScript file is minified by DLVR using esbuild@0.17.4.
          * DLVR: https://github.com/so1ve/dlvr
          * esbuild: https://esbuild.github.io
          */
@@ -22,7 +22,7 @@ describe("utils", () => {
 }`;
       expect(await minifyString(css, "css")).toMatchInlineSnapshot(`
         "/**
-         * This CSS file is minified by DLVR using esbuild@0.17.3.
+         * This CSS file is minified by DLVR using esbuild@0.17.4.
          * DLVR: https://github.com/so1ve/dlvr
          * esbuild: https://esbuild.github.io
          */
@@ -42,6 +42,26 @@ describe("utils", () => {
   }
 }`;
       expect(await minifyString(json, "json")).toMatchInlineSnapshot("\"{\\\"foo\\\":{\\\"bar\\\":[\\\"baz\\\",{\\\"qux\\\":\\\"test\\\"}]}}\"");
+    });
+    it("html", async () => {
+      const html = `<html>
+  <head>
+    <title>Test</title>
+  </head>
+  <body>
+    <div class="foo">
+      <p>bar</p>
+    </div>
+  </body>
+</html>`;
+      expect(await minifyString(html, "html")).toMatchInlineSnapshot(`
+        "<!--
+          This HTML file is minified by DLVR using html-minifier@4.0.0.
+          DLVR: https://github.com/so1ve/dlvr
+          html-minifier: https://github.com/kangax/html-minifier
+        -->
+        <html><head><title>Test</title></head><body><div class=foo><p>bar</p></div></body></html>"
+      `);
     });
   });
 });
