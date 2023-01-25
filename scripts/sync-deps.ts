@@ -8,6 +8,12 @@ const deps: ImportsVersionsDeps = {
   esbuild: "https://deno.land/x/esbuild@v%s/wasm.js",
 };
 
+const generateImportMap = async (imports: ImportsVersionsDeps) => {
+  const importMap = { imports };
+  const importMapStr = `${JSON.stringify(importMap, null, 2)}\n`;
+  await fsp.writeFile("import_map.json", importMapStr);
+};
+
 const generateDepsFile = async (versions: ImportsVersionsDeps) => {
   const externals = Object.keys(versions);
   const shouldQuote = externals.some(external => external.includes("-") || external.includes("@"));
@@ -36,9 +42,7 @@ async function main() {
     imports[dep] = formattedURL;
     versions[dep] = version;
   }
-  const importMap = { imports };
-  const importMapStr = `${JSON.stringify(importMap, null, 2)}\n`;
-  await fsp.writeFile("import_map.json", importMapStr);
+  generateImportMap(imports);
   generateDepsFile(versions);
 }
 
