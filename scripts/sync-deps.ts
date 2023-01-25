@@ -4,9 +4,13 @@ import fsp from "node:fs/promises";
 type ImportsVersionsDeps = Record<string, string>;
 interface PackageJSON { version: string }
 
-const deps: ImportsVersionsDeps = {
+const depsNeedReplace: ImportsVersionsDeps = {
   esbuild: "https://deno.land/x/esbuild@v%s/wasm.js",
 };
+
+const depsVersionOnly = [
+  "html-minifier",
+];
 
 const generateImportMap = async (imports: ImportsVersionsDeps) => {
   const importMap = { imports };
@@ -14,14 +18,14 @@ const generateImportMap = async (imports: ImportsVersionsDeps) => {
   await fsp.writeFile("import_map.json", importMapStr);
 };
 
-const generateDepsFile = async (versions: ImportsVersionsDeps) => {
-  const externals = Object.keys(versions);
-  const shouldQuote = externals.some(external => external.includes("-") || external.includes("@"));
+const generateDepsFile = async (versions: ImportsVersionsDeps, imports: ImportsVersionsDeps) => {
+  const externals = Object.keys(imports);
+  const shouldQuote = Object.keys(versions).some(external => external.includes("-") || external.includes("@"));
   const stringVersions = Object.entries(versions)
     .map(([dep, version]) => `${shouldQuote ? `"${dep}"` : dep}: "${version}",`)
-    .join("\n");
+    .join("\n  ");
   const stringExternals = externals.map(external => `"${external}",`)
-    .join("\n");
+    .join("\n  ");
   const template = `export const versions = {
   ${stringVersions}
 };
@@ -36,14 +40,18 @@ export const externals = [
 async function main() {
   const imports: ImportsVersionsDeps = {};
   const versions: ImportsVersionsDeps = {};
-  for (const [dep, depURL] of Object.entries(deps)) {
+  for (const [dep, depURL] of Object.entries(depsNeedReplace)) {
     const { version } = await import(`${dep}/package.json`) as PackageJSON;
     const formattedURL = format(depURL, version);
     imports[dep] = formattedURL;
     versions[dep] = version;
   }
+  for (const dep of depsVersionOnly) {
+    const { version } = await import(`${dep}/package.json`) as PackageJSON;
+    versions[dep] = version;
+  }
   generateImportMap(imports);
-  generateDepsFile(versions);
+  generateDepsFile(versions, imports);
 }
 
 main();

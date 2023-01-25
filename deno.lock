@@ -18,6 +18,8 @@
     "https://deno.land/x/esbuild@v0.17.0/mod.d.ts": "9babf61f23be4f22863a31c47e0d08c5c5a0e7581b9620defd1d06d4b07068fd",
     "https://deno.land/x/esbuild@v0.17.0/mod.js": "4f7a35eab22e06f544747e4c8e2ea5c9d31a7041e57320c8027c9d405c349a71",
     "https://deno.land/x/esbuild@v0.17.0/wasm.d.ts": "9babf61f23be4f22863a31c47e0d08c5c5a0e7581b9620defd1d06d4b07068fd",
-    "https://deno.land/x/esbuild@v0.17.0/wasm.js": "2fdae44880e5828554d5769983683c6699963ed22e27a792d1ab3bdd9fd7413e"
+    "https://deno.land/x/esbuild@v0.17.0/wasm.js": "2fdae44880e5828554d5769983683c6699963ed22e27a792d1ab3bdd9fd7413e",
+    "https://deno.land/x/esbuild@v0.17.3/wasm.d.ts": "dc279a3a46f084484453e617c0cabcd5b8bd1920c0e562e4ea02dfc828c8f968",
+    "https://deno.land/x/esbuild@v0.17.3/wasm.js": "6c5919ab453c9a8df051c86eb048631f68113b3ca4690bce255b20c54d0eb7ab"
   }
 }
