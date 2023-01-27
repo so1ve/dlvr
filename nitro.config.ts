@@ -16,15 +16,6 @@ export default defineNitroConfig({
   },
   rollupConfig: {
     external,
-    plugins: [
-      AutoImport({
-        dirs: [
-          "./src/utils/*.ts",
-          "./src/utils/*/index.ts",
-        ],
-        dts: "./src/auto-imports.d.ts",
-      }),
-    ],
   },
   experimental: {
     wasm: true,
