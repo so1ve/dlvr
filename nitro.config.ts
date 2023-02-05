@@ -1,5 +1,4 @@
 import { defineNitroConfig } from "nitropack";
-import AutoImport from "unplugin-auto-import/rollup";
 
 import { externals } from "./src/deps";
 
