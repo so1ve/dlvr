@@ -105,7 +105,7 @@ packages:
     resolution: {integrity: sha512-lhc/XLith28QdW0HpHZvZKkorWgmCNT7sVelMHDj3HFdTfdqkwEKvT+aXVQtNAmCC39VJhunDkWhONWB7335mg==}
     dependencies:
       '@esbuild-kit/core-utils': 3.0.0
-      get-tsconfig: 4.3.0
+      get-tsconfig: 4.4.0
     dev: true
 
   /@esbuild-kit/core-utils/3.0.0:
@@ -119,7 +119,7 @@ packages:
     resolution: {integrity: sha512-afmtLf6uqxD5IgwCzomtqCYIgz/sjHzCWZFvfS5+FzeYxOURPUo4QcHtqJxbxWOMOogKriZanN/1bJQE/ZL93A==}
     dependencies:
       '@esbuild-kit/core-utils': 3.0.0
-      get-tsconfig: 4.3.0
+      get-tsconfig: 4.4.0
     dev: true
 
   /@esbuild/android-arm/0.15.18:
@@ -2849,8 +2849,8 @@ packages:
       get-intrinsic: 1.2.0
     dev: true
 
-  /get-tsconfig/4.3.0:
-    resolution: {integrity: sha512-YCcF28IqSay3fqpIu5y3Krg/utCBHBeoflkZyHj/QcqI2nrLPC3ZegS9CmIo+hJb8K7aiGsuUl7PwWVjNG2HQQ==}
+  /get-tsconfig/4.4.0:
+    resolution: {integrity: sha512-0Gdjo/9+FzsYhXCEFueo2aY1z1tpXrxWZzP7k8ul9qt1U5o8rYJwTJYmaeHdrVosYIVYkOy2iwCJ9FdpocJhPQ==}
     dev: true
 
   /giget/1.0.0:
@@ -3659,8 +3659,8 @@ packages:
       yallist: 4.0.0
     dev: true
 
-  /minipass/4.0.1:
-    resolution: {integrity: sha512-V9esFpNbK0arbN3fm2sxDKqMYgIp7XtVdE4Esj+PE4Qaaxdg1wIw48ITQIOn1sc8xXSmUviVL3cyjMqPlrVkiA==}
+  /minipass/4.0.2:
+    resolution: {integrity: sha512-4Hbzei7ZyBp+1aw0874YWpKOubZd/jc53/XU+gkYry1QV+VvrbO8icLM5CUtm4F0hyXn85DXYKEMIS26gitD3A==}
     engines: {node: '>=8'}
     dev: true
 
@@ -4686,7 +4686,7 @@ packages:
     dependencies:
       chownr: 2.0.0
       fs-minipass: 2.1.0
-      minipass: 4.0.1
+      minipass: 4.0.2
       minizlib: 2.1.2
       mkdirp: 1.0.4
       yallist: 4.0.0
