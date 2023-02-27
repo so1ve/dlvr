@@ -6,7 +6,7 @@ importers:
     specifiers:
       '@antfu/ni': ^0.19.0
       '@babel/types': ^7.20.7
-      '@mini-cz/config-default': ^0.1.3
+      '@mini-cz/config-default': ^0.4.0
       '@so1ve/eslint-config': ^0.43.0
       '@types/clean-css': ^4.2.6
       '@types/html-minifier-terser': ^7.0.0
@@ -36,7 +36,7 @@ importers:
     devDependencies:
       '@antfu/ni': 0.19.0
       '@babel/types': 7.21.2
-      '@mini-cz/config-default': 0.1.5_mini-cz@0.1.5
+      '@mini-cz/config-default': 0.4.1_mini-cz@0.1.5
       '@so1ve/eslint-config': 0.43.1_ycpbpc6yetojsgtrx3mwntkhsu
       '@types/clean-css': 4.2.6
       '@types/html-minifier-terser': 7.0.0
@@ -613,8 +613,8 @@ packages:
       - supports-color
     dev: true
 
-  /@mini-cz/config-default/0.1.5_mini-cz@0.1.5:
-    resolution: {integrity: sha512-AOEHSR6d/By45W/9XxXnG3+NPdybByKowZiL255Vl1Ulx0eZCKRxdyyWiMIwkgQ6bU9aXMeHlavD7cWIZTpwjg==}
+  /@mini-cz/config-default/0.4.1_mini-cz@0.1.5:
+    resolution: {integrity: sha512-vvc2HvkDmWFkbz99NoyqnuXTYHBZexNKE+XKAT7X49cmobBbgufQvK8zufYWxTvK3d7AD0AgATqgsPSe1PBOXQ==}
     peerDependencies:
       mini-cz: '*'
     dependencies:
