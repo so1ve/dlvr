@@ -1,4 +1,5 @@
 import type { MaybeArray } from "../types";
+import { toArray } from ".";
 
 export const createBanner = (_text: MaybeArray<string>) => {
   const text = toArray(_text);
