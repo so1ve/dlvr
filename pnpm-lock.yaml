@@ -1,57 +1,56 @@
 lockfileVersion: 5.4
 
-importers:
+specifiers:
+  '@antfu/ni': ^0.20.0
+  '@babel/types': ^7.21.2
+  '@mini-cz/config-default': ^0.4.1
+  '@so1ve/eslint-config': ^0.45.2
+  '@types/clean-css': ^4.2.6
+  '@types/html-minifier-terser': ^7.0.0
+  '@types/micromatch': ^4.0.2
+  '@types/mime': ^3.0.1
+  '@types/node': ^18.14.2
+  destr: ^1.2.2
+  esbuild: ^0.17.10
+  eslint: ^8.35.0
+  html-minifier-terser: ^7.1.0
+  micromatch: ^4.0.5
+  mime: ^3.0.0
+  mini-cz: ^0.4.1
+  nitropack: ^2.2.3
+  pnpm: ^7.28.0
+  rimraf: ^4.1.2
+  tsx: ^3.12.3
+  typescript: ^4.9.5
+  vite: ^4.1.4
+  vitest: ^0.29.1
 
-  .:
-    specifiers:
-      '@antfu/ni': ^0.20.0
-      '@babel/types': ^7.21.2
-      '@mini-cz/config-default': ^0.4.1
-      '@so1ve/eslint-config': ^0.45.2
-      '@types/clean-css': ^4.2.6
-      '@types/html-minifier-terser': ^7.0.0
-      '@types/micromatch': ^4.0.2
-      '@types/mime': ^3.0.1
-      '@types/node': ^18.14.2
-      destr: ^1.2.2
-      esbuild: ^0.17.10
-      eslint: ^8.35.0
-      html-minifier-terser: ^7.1.0
-      micromatch: ^4.0.5
-      mime: ^3.0.0
-      mini-cz: ^0.4.1
-      nitropack: ^2.2.3
-      pnpm: ^7.28.0
-      rimraf: ^4.1.2
-      tsx: ^3.12.3
-      typescript: ^4.9.5
-      vite: ^4.1.4
-      vitest: ^0.29.1
-    dependencies:
-      destr: 1.2.2
-      esbuild: 0.17.10
-      html-minifier-terser: 7.1.0
-      micromatch: 4.0.5
-      mime: 3.0.0
-    devDependencies:
-      '@antfu/ni': 0.20.0
-      '@babel/types': 7.21.2
-      '@mini-cz/config-default': 0.4.1_mini-cz@0.4.1
-      '@so1ve/eslint-config': 0.45.2_ycpbpc6yetojsgtrx3mwntkhsu
-      '@types/clean-css': 4.2.6
-      '@types/html-minifier-terser': 7.0.0
-      '@types/micromatch': 4.0.2
-      '@types/mime': 3.0.1
-      '@types/node': 18.14.2
-      eslint: 8.35.0
-      mini-cz: 0.4.1
-      nitropack: 2.2.3
-      pnpm: 7.28.0
-      rimraf: 4.1.2
-      tsx: 3.12.3
-      typescript: 4.9.5
-      vite: 4.1.4_@types+node@18.14.2
-      vitest: 0.29.1
+dependencies:
+  destr: 1.2.2
+  esbuild: 0.17.10
+  html-minifier-terser: 7.1.0
+  micromatch: 4.0.5
+  mime: 3.0.0
+
+devDependencies:
+  '@antfu/ni': 0.20.0
+  '@babel/types': 7.21.2
+  '@mini-cz/config-default': 0.4.1_mini-cz@0.4.1
+  '@so1ve/eslint-config': 0.45.2_ycpbpc6yetojsgtrx3mwntkhsu
+  '@types/clean-css': 4.2.6
+  '@types/html-minifier-terser': 7.0.0
+  '@types/micromatch': 4.0.2
+  '@types/mime': 3.0.1
+  '@types/node': 18.14.2
+  eslint: 8.35.0
+  mini-cz: 0.4.1
+  nitropack: 2.2.3
+  pnpm: 7.28.0
+  rimraf: 4.1.2
+  tsx: 3.12.3
+  typescript: 4.9.5
+  vite: 4.1.4_@types+node@18.14.2
+  vitest: 0.29.1
 
 packages:
 
