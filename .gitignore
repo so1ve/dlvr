@@ -9,9 +9,6 @@ lib-cov
 logs
 node_modules
 temp
-.nitro/dev
-.nitro/prerender
+.nitro
 .output
-.vercel
-
 .vercel
