@@ -24,7 +24,7 @@
     "typecheck": "tsc --noEmit",
     "commit": "mcz",
     "sync-deps": "tsx scripts/sync-deps.ts",
-    "postinstall": "nr sync-deps"
+    "postinstall": "nitropack prepare && nr sync-deps"
   },
   "dependencies": {
     "destr": "^1.2.2",
