@@ -12,11 +12,11 @@ Then, go to [Deno Deploy](https://dash.deno.com/projects) and create a new proje
 
 ![](./assets/new-project.png)
 
-Add an actions secret named `DENO_DEPLOY_PROJECT_NAME` and set the value to your project name.
-
 Select your forked repository, and set the deploy method to `GitHub Actions`.
 
 ![](./assets/create.png)
+
+Add an actions secret named `DENO_DEPLOY_PROJECT_NAME` and set the value to your project name.
 
 Finally, click `Deploy` to deploy your project.
 
