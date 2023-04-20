@@ -8,7 +8,7 @@ const PREFIX = "/gh/";
 export default eventHandler(async (event) => {
   const query = getQuery(event);
   const shouldMinify = query.minify !== undefined || query.min !== undefined;
-  const requestPath = event.path || "";
+  const requestPath = event.path ?? "";
   let parsed: ParsedGithubURL;
   try {
     parsed = parseGithubURL(getPathOnly(requestPath).slice(PREFIX.length));
@@ -36,7 +36,7 @@ export default eventHandler(async (event) => {
         originalMime = r.headers.get("Content-Type")!;
       }
       const extraMime = getExtraMime(originalMime);
-      originalMime = mimeDetector.getType(r.url) || originalMime;
+      originalMime = mimeDetector.getType(r.url) ?? originalMime;
       if (extraMime) {
         originalMime += `; ${extraMime}`;
       }
@@ -44,7 +44,7 @@ export default eventHandler(async (event) => {
     })
     .then(r => new Uint8Array(r));
   const contentMime = getContentMime(originalMime);
-  const extension = getExtension(parsed.path) || mimeDetector.getExtension(contentMime);
+  const extension = getExtension(parsed.path) ?? mimeDetector.getExtension(contentMime);
   if (shouldMinify && extension && SUPPORTED_MINIFY_EXTENSIONS.includes(extension)) {
     res = await minify(res, extension as any);
   }
