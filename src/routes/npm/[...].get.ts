@@ -8,7 +8,7 @@ const PREFIX = "/npm/";
 export default eventHandler(async (event) => {
   const query = getQuery(event);
   const shouldMinify = query.minify !== undefined || query.min !== undefined;
-  const requestPath = event.path || "";
+  const requestPath = event.path ?? "";
   let parsed: ParsedNPMURL;
   try {
     parsed = parseNPMURL(getPathOnly(requestPath).slice(PREFIX.length));
@@ -31,12 +31,12 @@ export default eventHandler(async (event) => {
       if (r.headers.has("Content-Type")) {
         originalMime = r.headers.get("Content-Type")!;
       }
-      originalMime = mimeDetector.getType(r.url) || originalMime;
+      originalMime = mimeDetector.getType(r.url) ?? originalMime;
       return res;
     })
     .then(r => new Uint8Array(r));
   const contentMime = getContentMime(originalMime);
-  const extension = getExtension(parsed.path) || mimeDetector.getExtension(contentMime);
+  const extension = getExtension(parsed.path) ?? mimeDetector.getExtension(contentMime);
   if (shouldMinify && extension && SUPPORTED_MINIFY_EXTENSIONS.includes(extension)) {
     res = await minify(res, extension as any);
   }
