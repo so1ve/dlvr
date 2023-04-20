@@ -37,7 +37,7 @@ export const externals = [
   await fsp.writeFile("src/deps.ts", template);
 };
 
-async function main() {
+async function main () {
   const imports: ImportsVersionsDeps = {};
   const versions: ImportsVersionsDeps = {};
   for (const [dep, depURL] of Object.entries(depsNeedReplace)) {

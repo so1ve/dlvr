@@ -7,7 +7,7 @@ export interface ParsedGithubURL {
 
 export const GITHUB_MATCHER = /^([^/]+)\/([^/@]+)(?:@([^/]+))?(?:\/(.*))$/;
 
-export function parseGithubURL(url: string): ParsedGithubURL {
+export function parseGithubURL (url: string): ParsedGithubURL {
   const match = GITHUB_MATCHER.exec(url);
   if (!match) {
     throw fatalError({ message: `Invalid GitHub url: ${url}`, status: 400 });
@@ -30,7 +30,7 @@ export interface ParsedNPMURL {
 
 export const NPM_MATCHER = /^((?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*)(?:@([^/]+))?(?:\/(.*))?$/;
 
-export function parseNPMURL(url: string): ParsedNPMURL {
+export function parseNPMURL (url: string): ParsedNPMURL {
   const match = NPM_MATCHER.exec(url);
   if (!match) {
     throw fatalError({ message: `Invalid NPM url: ${url}`, status: 400 });
