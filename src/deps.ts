@@ -1,6 +1,6 @@
 export const versions = {
-  "esbuild": "0.17.10",
-  "html-minifier-terser": "7.1.0",
+  "esbuild": "0.17.17",
+  "html-minifier-terser": "7.2.0",
 };
 
 export const externals = [
