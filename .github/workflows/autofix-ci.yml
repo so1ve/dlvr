@@ -1,0 +1,36 @@
+name: autofix.ci
+on:
+  push:
+    branches:
+      - main
+
+  pull_request: {}
+
+permissions:
+  contents: read
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v2.2.4
+
+      - name: Set node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: pnpm
+
+      - name: Setup
+        run: npm i -g @antfu/ni
+
+      - name: Install
+        run: nci
+
+      - name: Lint and fix
+        run: nr lint:fix
+
+      - uses: autofix-ci/action@8bc06253bec489732e5f9c52884c7cace15c0160
