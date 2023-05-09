@@ -2,7 +2,7 @@
   "name": "dlvr",
   "private": true,
   "version": "0.0.0",
-  "packageManager": "pnpm@7.32.3",
+  "packageManager": "pnpm@7.32.4",
   "author": "Ray <i@mk1.io> (@so1ve)",
   "description": "",
   "keywords": [],
