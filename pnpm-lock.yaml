@@ -4,7 +4,7 @@ importers:
 
   .:
     specifiers:
-      '@antfu/ni': ^0.20.0
+      '@antfu/ni': ^0.21.0
       '@babel/types': ^7.21.2
       '@mini-cz/config-default': ^0.4.1
       '@so1ve/eslint-config': ^0.45.2
@@ -34,7 +34,7 @@ importers:
       micromatch: 4.0.5
       mime: 3.0.0
     devDependencies:
-      '@antfu/ni': 0.20.0
+      '@antfu/ni': 0.21.3
       '@babel/types': 7.21.4
       '@mini-cz/config-default': 0.4.1_mini-cz@0.8.0
       '@so1ve/eslint-config': 0.45.3_voubu7prgxjfsfbgx5d4sqnwiy
@@ -55,8 +55,8 @@ importers:
 
 packages:
 
-  /@antfu/ni/0.20.0:
-    resolution: {integrity: sha512-mBgAuq2b0daSA/14LMyjEjaInD7/Zd7KVXZge7bQPKmtQJFqy9/pWBml6DMkMreeHQEomMtIbbeqReNJ/74kjA==}
+  /@antfu/ni/0.21.3:
+    resolution: {integrity: sha512-iDtQMeMW1kKV4nzQ+tjYOIPUm6nmh7pJe4sM0kx1jdAChKSCBLStqlgIoo5Tce++p+o8cBiWIzC3jg6oHyjzMA==}
     hasBin: true
     dev: true
 
