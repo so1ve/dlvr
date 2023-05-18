@@ -44,7 +44,7 @@
     "@types/mime": "^3.0.1",
     "@types/node": "^18.14.2",
     "eslint": "^8.35.0",
-    "mini-cz": "^0.4.1",
+    "mini-cz": "^0.8.0",
     "nitropack": "^2.2.3",
     "pnpm": "^7.28.0",
     "rimraf": "^4.1.2",
