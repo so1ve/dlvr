@@ -15,7 +15,7 @@ export default defineNitroConfig({
       cors: true,
       headers: { "access-control-allowed-methods": "GET" },
     },
-    "/": { prerender: true, swr: true },
+    "/": { swr: true },
   },
   rollupConfig: {
     external,
