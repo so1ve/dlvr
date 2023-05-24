@@ -10,7 +10,10 @@ export const ESBUILD_LINK_BANNER = [
 
 let initialized = false;
 
-export const esbuildMinify = async (code: string, options?: esbuild.TransformOptions) => {
+export async function esbuildMinify(
+  code: string,
+  options?: esbuild.TransformOptions,
+) {
   if (!initialized) {
     // @ts-expect-error Deno
     if (typeof Deno !== "undefined") {
@@ -20,9 +23,12 @@ export const esbuildMinify = async (code: string, options?: esbuild.TransformOpt
     }
     initialized = true;
   }
-  return await esbuild.transform(code, {
-    ...options,
-    minify: true,
-    keepNames: false,
-  }).then(r => r.code);
-};
+
+  return await esbuild
+    .transform(code, {
+      ...options,
+      minify: true,
+      keepNames: false,
+    })
+    .then((r) => r.code);
+}

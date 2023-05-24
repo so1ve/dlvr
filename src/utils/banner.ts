@@ -1,20 +1,21 @@
 import type { MaybeArray } from "../types";
+
 import { toArray } from ".";
 
-export const createBanner = (_text: MaybeArray<string>) => {
+export function createBanner(_text: MaybeArray<string>) {
   const text = toArray(_text);
   let str = "/**\n";
-  str += text.map(t => ` * ${t}\n`)
-    .join("");
+  str += text.map((t) => ` * ${t}\n`).join("");
   str += " */\n";
-  return str;
-};
 
-export const createHTMLBanner = (_text: MaybeArray<string>) => {
+  return str;
+}
+
+export function createHTMLBanner(_text: MaybeArray<string>) {
   const text = toArray(_text);
   let str = "<!--\n";
-  str += text.map(t => `  ${t}\n`)
-    .join("");
+  str += text.map((t) => `  ${t}\n`).join("");
   str += "-->\n";
+
   return str;
-};
+}

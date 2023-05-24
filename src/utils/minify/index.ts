@@ -13,7 +13,12 @@ const minifierMap = {
 export const SUPPORTED_MINIFY_EXTENSIONS = Object.keys(minifierMap);
 type SupportedMinifyExtensions = keyof typeof minifierMap;
 
-export const minify = async (content: Uint8Array, mime: SupportedMinifyExtensions) =>
-  stringToUint8Array(await minifierMap[mime](uint8ArrayToString(content)));
+export const minify = async (
+  content: Uint8Array,
+  mime: SupportedMinifyExtensions,
+) => stringToUint8Array(await minifierMap[mime](uint8ArrayToString(content)));
 
-export const minifyString = async (code: string, mime: SupportedMinifyExtensions) => await minifierMap[mime](code);
+export const minifyString = async (
+  code: string,
+  mime: SupportedMinifyExtensions,
+) => await minifierMap[mime](code);

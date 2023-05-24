@@ -3,10 +3,7 @@
   "compilerOptions": {
     "target": "ES2018",
     "module": "ESNext",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ],
+    "lib": ["ESNext", "DOM"],
     "moduleResolution": "Node",
     "esModuleInterop": true,
     "strict": true,
@@ -15,7 +12,5 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true
   },
-  "exclude": [
-    ".output"
-  ]
+  "exclude": [".output"]
 }

@@ -1,4 +1,5 @@
 import {} from "type-fest";
+
 import type { ParsedGithubURL, ParsedNPMURL } from "../utils/parse";
 
 export type MaybePromise<T> = T | Promise<T>;

@@ -6,9 +6,10 @@ describe("utils", () => {
       const js = `import * as kons from 'kons'
   const foo = 'bar'
   kons.log(foo)`;
-      expect(await minifyString(js, "js")).toMatchInlineSnapshot(`
+
+      await expect(minifyString(js, "js")).resolves.toMatchInlineSnapshot(`
         "/**
-         * This JavaScript file is minified by DLVR using esbuild@0.17.4.
+         * This JavaScript file is minified by DLVR using esbuild@0.17.19.
          * DLVR: https://github.com/so1ve/dlvr
          * esbuild: https://esbuild.github.io
          */
@@ -16,13 +17,15 @@ describe("utils", () => {
         "
       `);
     });
+
     it("css", async () => {
       const css = `div.foo * {
   display: block;
 }`;
-      expect(await minifyString(css, "css")).toMatchInlineSnapshot(`
+
+      await expect(minifyString(css, "css")).resolves.toMatchInlineSnapshot(`
         "/**
-         * This CSS file is minified by DLVR using esbuild@0.17.4.
+         * This CSS file is minified by DLVR using esbuild@0.17.19.
          * DLVR: https://github.com/so1ve/dlvr
          * esbuild: https://esbuild.github.io
          */
@@ -30,6 +33,7 @@ describe("utils", () => {
         "
       `);
     });
+
     it("json", async () => {
       const json = `{
   "foo": {
@@ -41,8 +45,12 @@ describe("utils", () => {
     ]
   }
 }`;
-      expect(await minifyString(json, "json")).toMatchInlineSnapshot("\"{\\\"foo\\\":{\\\"bar\\\":[\\\"baz\\\",{\\\"qux\\\":\\\"test\\\"}]}}\"");
+
+      await expect(minifyString(json, "json")).resolves.toMatchInlineSnapshot(
+        '"{\\"foo\\":{\\"bar\\":[\\"baz\\",{\\"qux\\":\\"test\\"}]}}"',
+      );
     });
+
     it("html", async () => {
       const html = `<html>
   <head>
@@ -54,9 +62,10 @@ describe("utils", () => {
     </div>
   </body>
 </html>`;
-      expect(await minifyString(html, "html")).toMatchInlineSnapshot(`
+
+      await expect(minifyString(html, "html")).resolves.toMatchInlineSnapshot(`
         "<!--
-          This HTML file is minified by DLVR using html-minifier-terser@7.1.0.
+          This HTML file is minified by DLVR using html-minifier-terser@7.2.0.
           DLVR: https://github.com/so1ve/dlvr
           html-minifier-terser: https://github.com/terser/html-minifier-terser
         -->

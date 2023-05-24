@@ -17,7 +17,10 @@ export default eventHandler(async (event) => {
   }
   const normalizedPath = generateNPMURL(parsed);
   if (isBanned(BANNED_NPM, normalizedPath)) {
-    throw fatalError({ message: "This package / version / file is banned.", status: 403 });
+    throw fatalError({
+      message: "This package / version / file is banned.",
+      status: 403,
+    });
   }
   const requestURL = resolveNPMURL(parsed);
   let originalMime!: string;
@@ -32,17 +35,24 @@ export default eventHandler(async (event) => {
         originalMime = r.headers.get("Content-Type")!;
       }
       originalMime = mimeDetector.getType(r.url) ?? originalMime;
+
       return res;
     })
-    .then(r => new Uint8Array(r));
+    .then((r) => new Uint8Array(r));
   const contentMime = getContentMime(originalMime);
-  const extension = getExtension(parsed.path) ?? mimeDetector.getExtension(contentMime);
-  if (shouldMinify && extension && SUPPORTED_MINIFY_EXTENSIONS.includes(extension)) {
+  const extension =
+    getExtension(parsed.path) ?? mimeDetector.getExtension(contentMime);
+  if (
+    shouldMinify &&
+    extension &&
+    SUPPORTED_MINIFY_EXTENSIONS.includes(extension)
+  ) {
     res = await minify(res, extension as any);
   }
   event.node.res.setHeader("Content-Type", originalMime);
   if (parsed.version !== "latest") {
     event.node.res.setHeader("Cache-Control", MAX_CACHE);
   }
+
   return res;
 });

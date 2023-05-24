@@ -3,9 +3,5 @@ import configDefault from "@mini-cz/config-default";
 
 export default defineConfig({
   ...configDefault,
-  scopes: [
-    "github",
-    "npm",
-    "minify",
-  ],
+  scopes: ["github", "npm", "minify"],
 });
