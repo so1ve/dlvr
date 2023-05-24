@@ -17,40 +17,40 @@
   "license": "MIT",
   "scripts": {
     "build": "nitropack build",
+    "commit": "mcz",
     "dev": "nitropack dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "test": "vitest",
-    "typecheck": "tsc --noEmit",
-    "commit": "mcz",
+    "postinstall": "nitropack prepare && nr sync-deps",
     "sync-deps": "tsx scripts/sync-deps.ts",
-    "postinstall": "nitropack prepare && nr sync-deps"
+    "test": "vitest",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "destr": "^1.2.2",
-    "esbuild": "^0.17.10",
-    "html-minifier-terser": "^7.1.0",
+    "esbuild": "^0.17.19",
+    "html-minifier-terser": "^7.2.0",
     "micromatch": "^4.0.5",
     "mime": "^3.0.0"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.21.0",
-    "@babel/types": "^7.21.2",
+    "@antfu/ni": "^0.21.3",
+    "@babel/types": "^7.21.5",
     "@mini-cz/config-default": "^0.8.0",
-    "@so1ve/eslint-config": "^0.45.2",
+    "@so1ve/eslint-config": "^0.93.0",
     "@types/clean-css": "^4.2.6",
     "@types/html-minifier-terser": "^7.0.0",
     "@types/micromatch": "^4.0.2",
     "@types/mime": "^3.0.1",
-    "@types/node": "^18.14.2",
-    "eslint": "^8.35.0",
+    "@types/node": "^20.2.3",
+    "eslint": "^8.41.0",
     "mini-cz": "^0.8.0",
-    "nitropack": "^2.2.3",
-    "pnpm": "^7.28.0",
-    "rimraf": "^4.1.2",
-    "tsx": "^3.12.3",
-    "typescript": "^5.0.0",
-    "vite": "^4.1.4",
-    "vitest": "^0.31.0"
+    "nitropack": "^2.4.1",
+    "pnpm": "^7.32.5",
+    "rimraf": "^5.0.1",
+    "tsx": "^3.12.7",
+    "typescript": "^5.0.4",
+    "vite": "^4.3.8",
+    "vitest": "^0.31.1"
   }
 }
