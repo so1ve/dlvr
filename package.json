@@ -53,6 +53,6 @@
     "typescript": "^5.0.4",
     "unplugin-auto-import": "^0.16.2",
     "vite": "^4.3.8",
-    "vitest": "^0.31.1"
+    "vitest": "^0.32.0"
   }
 }
