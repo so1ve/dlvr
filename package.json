@@ -35,7 +35,6 @@
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.3",
-    "@babel/types": "^7.21.5",
     "@mini-cz/config-default": "^0.8.0",
     "@so1ve/eslint-config": "^0.99.0",
     "@types/clean-css": "^4.2.6",
@@ -48,7 +47,6 @@
     "nitropack": "^2.4.1",
     "pnpm": "^7.32.5",
     "prettier": "^2.8.8",
-    "rimraf": "^5.0.1",
     "tsx": "^3.12.7",
     "typescript": "^5.0.4",
     "unplugin-auto-import": "^0.16.2",
