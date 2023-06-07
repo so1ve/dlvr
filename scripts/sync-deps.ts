@@ -38,7 +38,7 @@ async function generateDepsFile(
 
 export const externals = [
   ${stringExternals}
-];
+]; // Avoid bad format
 `;
   await fsp.writeFile("src/deps.ts", template);
 }
