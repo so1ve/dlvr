@@ -3,4 +3,6 @@ export const versions = {
   "html-minifier-terser": "7.2.0",
 };
 
-export const externals = ["esbuild"]; // Avoid bad format
+export const externals = [
+  "esbuild", // Avoid bad format
+];
