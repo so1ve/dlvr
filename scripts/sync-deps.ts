@@ -30,7 +30,7 @@ async function generateDepsFile(
     .map(([dep, version]) => `${shouldQuote ? `"${dep}"` : dep}: "${version}",`)
     .join("\n  ");
   const stringExternals = externals
-    .map((external) => `"${external}",`)
+    .map((external) => `"${external}", // Avoid bad format`)
     .join("\n  ");
   const template = `export const versions = {
   ${stringVersions}
@@ -38,7 +38,7 @@ async function generateDepsFile(
 
 export const externals = [
   ${stringExternals}
-]; // Avoid bad format
+];
 `;
   await fsp.writeFile("src/deps.ts", template);
 }
