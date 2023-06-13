@@ -36,7 +36,7 @@
   "devDependencies": {
     "@antfu/ni": "^0.21.3",
     "@mini-cz/config-default": "^0.8.0",
-    "@so1ve/eslint-config": "^0.99.0",
+    "@so1ve/eslint-config": "^0.102.0",
     "@types/clean-css": "^4.2.6",
     "@types/html-minifier-terser": "^7.0.0",
     "@types/micromatch": "^4.0.2",

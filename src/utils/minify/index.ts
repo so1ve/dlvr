@@ -1,7 +1,7 @@
 import { CSSMinifier } from "./css";
+import { HTMLMinifier } from "./html";
 import { JSMinifier } from "./js";
 import { JSONMinifier } from "./json";
-import { HTMLMinifier } from "./html";
 
 const minifierMap = {
   js: JSMinifier,
