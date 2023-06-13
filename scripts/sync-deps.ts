@@ -1,5 +1,5 @@
-import { format } from "node:util";
 import fsp from "node:fs/promises";
+import { format } from "node:util";
 
 type ImportsVersionsDeps = Record<string, string>;
 interface PackageJSON {
