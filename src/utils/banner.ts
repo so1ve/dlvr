@@ -1,5 +1,4 @@
 import type { MaybeArray } from "../types";
-
 import { toArray } from ".";
 
 export function createBanner(_text: MaybeArray<string>) {
