@@ -24,7 +24,7 @@
     "postinstall": "nitropack prepare && nr sync-deps",
     "sync-deps": "tsx scripts/sync-deps.ts",
     "test": "vitest",
-    "test:minify":"vitest run minify",
+    "test:minify": "vitest run minify",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
