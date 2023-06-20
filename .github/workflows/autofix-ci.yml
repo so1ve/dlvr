@@ -33,4 +33,7 @@ jobs:
       - name: Lint and fix
         run: nr lint:fix
 
+      - name: Test Minify
+        run: nr test:minify -u
+
       - uses: autofix-ci/action@8bc06253bec489732e5f9c52884c7cace15c0160
