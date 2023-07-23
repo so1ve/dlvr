@@ -1,5 +1,5 @@
 {
-  "imports": {
-    "esbuild": "https://deno.land/x/esbuild@v0.18.5/wasm.js"
-  }
+	"imports": {
+		"esbuild": "https://deno.land/x/esbuild@v0.18.5/wasm.js"
+	}
 }
