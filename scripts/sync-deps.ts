@@ -14,10 +14,7 @@ const depsVersionOnly: string[] = ["html-minifier-terser"];
 
 async function generateImportMap(imports: ImportsVersionsDeps) {
 	const importMap = { imports };
-	const importMapStr = `${JSON.stringify(importMap, null, 2).replace(
-		"  ",
-		"	",
-	)}\n`;
+	const importMapStr = `${JSON.stringify(importMap, null, "\t")}\n`;
 	await fsp.writeFile("import_map.json", importMapStr);
 }
 
@@ -31,16 +28,16 @@ async function generateDepsFile(
 	);
 	const stringVersions = Object.entries(versions)
 		.map(([dep, version]) => `${shouldQuote ? `"${dep}"` : dep}: "${version}",`)
-		.join("\n	");
+		.join("\n\t");
 	const stringExternals = externals
 		.map((external) => `"${external}", // Avoid bad format`)
-		.join("\n	");
+		.join("\n\t");
 	const template = `export const versions = {
-	${stringVersions}
+\t${stringVersions}
 };
 
 export const externals = [
-	${stringExternals}
+\t${stringExternals}
 ];
 `;
 	await fsp.writeFile("src/deps.ts", template);
