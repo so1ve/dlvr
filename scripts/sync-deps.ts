@@ -14,7 +14,10 @@ const depsVersionOnly: string[] = ["html-minifier-terser"];
 
 async function generateImportMap(imports: ImportsVersionsDeps) {
 	const importMap = { imports };
-	const importMapStr = `${JSON.stringify(importMap, null, 2)}\n`;
+	const importMapStr = `${JSON.stringify(importMap, null, 2).replace(
+		"  ",
+		"	",
+	)}\n`;
 	await fsp.writeFile("import_map.json", importMapStr);
 }
 
