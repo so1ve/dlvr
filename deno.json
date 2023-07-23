@@ -1,4 +1,4 @@
 {
-  "$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
-  "importMap": "import_map.json"
+	"$schema": "https://deno.land/x/deno/cli/schemas/config-file.v1.json",
+	"importMap": "import_map.json"
 }

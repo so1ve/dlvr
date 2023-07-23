@@ -8,12 +8,12 @@ You can ban NPM packages by adding them to the `BANNED_NPM` array in `src/config
 
 ```ts
 export const BANNED_NPM: NPMBannedList = [
-  // Ban the `vue` package
-  "vue@*/**",
-  // Ban vue 2
-  "vue@2.*.*/**",
-  // Ban a specified file
-  "vue@*/package.json",
+	// Ban the `vue` package
+	"vue@*/**",
+	// Ban vue 2
+	"vue@2.*.*/**",
+	// Ban a specified file
+	"vue@*/package.json",
 ];
 ```
 
@@ -23,13 +23,13 @@ You can ban GitHub users / repositories by adding them to the `BANNED_GITHUB` ar
 
 ```ts
 export const BANNED_GITHUB: GitHubBannedList = [
-  // Ban the `vuejs` organization
-  "vuejs@*/**",
-  // Ban the `vuejs/vue` repository
-  "vuejs/vue@*/**",
-  // Ban the `vuejs/vue` repository's `dev` branch
-  "vuejs/vue@dev/**",
-  // Ban a specified file
-  "vuejs/vue@*/package.json",
+	// Ban the `vuejs` organization
+	"vuejs@*/**",
+	// Ban the `vuejs/vue` repository
+	"vuejs/vue@*/**",
+	// Ban the `vuejs/vue` repository's `dev` branch
+	"vuejs/vue@dev/**",
+	// Ban a specified file
+	"vuejs/vue@*/package.json",
 ];
 ```

@@ -1,53 +1,54 @@
 {
-  "name": "dlvr",
-  "private": true,
-  "version": "0.0.0",
-  "packageManager": "pnpm@7.33.5",
-  "author": "Ray <i@mk1.io> (@so1ve)",
-  "description": "",
-  "keywords": [],
-  "homepage": "https://github.com/so1ve/dlvr#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/so1ve/dlvr.git"
-  },
-  "bugs": {
-    "url": "https://github.com/so1ve/dlvr/issues"
-  },
-  "license": "MIT",
-  "scripts": {
-    "build": "nitropack build",
-    "dev": "nitropack dev",
-    "prepare": "nitropack prepare",
-    "postinstall": "nr prepare && nr sync-deps",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "sync-deps": "tsx scripts/sync-deps.ts",
-    "test": "vitest",
-    "test:minify": "vitest run -t minify",
-    "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "destr": "^1.2.2",
-    "esbuild": "^0.18.0",
-    "html-minifier-terser": "^7.2.0",
-    "micromatch": "^4.0.5",
-    "mime": "^3.0.0"
-  },
-  "devDependencies": {
-    "@antfu/ni": "^0.21.3",
-    "@so1ve/eslint-config": "^0.110.0",
-    "@types/clean-css": "^4.2.6",
-    "@types/html-minifier-terser": "^7.0.0",
-    "@types/micromatch": "^4.0.2",
-    "@types/mime": "^3.0.1",
-    "@types/node": "^20.2.3",
-    "eslint": "^8.41.0",
-    "nitropack": "^2.4.1",
-    "prettier": "^2.8.8",
-    "typescript": "^5.0.4",
-    "unplugin-auto-import": "^0.16.2",
-    "vite": "^4.3.8",
-    "vitest": "^0.32.0"
-  }
+	"name": "dlvr",
+	"private": true,
+	"version": "0.0.0",
+	"packageManager": "pnpm@7.33.5",
+	"author": "Ray <i@mk1.io> (@so1ve)",
+	"description": "",
+	"keywords": [],
+	"homepage": "https://github.com/so1ve/dlvr#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/so1ve/dlvr.git"
+	},
+	"bugs": {
+		"url": "https://github.com/so1ve/dlvr/issues"
+	},
+	"license": "MIT",
+	"scripts": {
+		"build": "nitropack build",
+		"dev": "nitropack dev",
+		"postinstall": "nr prepare && nr sync-deps",
+		"lint": "eslint . && prettier . --check",
+		"lint:fix": "eslint . --fix && prettier . --write",
+		"prepare": "nitropack prepare",
+		"sync-deps": "tsx scripts/sync-deps.ts",
+		"test": "vitest",
+		"test:minify": "vitest run -t minify",
+		"typecheck": "tsc --noEmit"
+	},
+	"dependencies": {
+		"destr": "^1.2.2",
+		"esbuild": "^0.18.0",
+		"html-minifier-terser": "^7.2.0",
+		"micromatch": "^4.0.5",
+		"mime": "^3.0.0"
+	},
+	"devDependencies": {
+		"@antfu/ni": "^0.21.3",
+		"@so1ve/eslint-config": "^0.115.5",
+		"@so1ve/prettier-config": "^0.115.5",
+		"@types/clean-css": "^4.2.6",
+		"@types/html-minifier-terser": "^7.0.0",
+		"@types/micromatch": "^4.0.2",
+		"@types/mime": "^3.0.1",
+		"@types/node": "^18.17.0",
+		"eslint": "^8.45.0",
+		"nitropack": "^2.4.1",
+		"prettier": "^3.0.0",
+		"typescript": "^5.0.4",
+		"unplugin-auto-import": "^0.16.2",
+		"vite": "^4.3.8",
+		"vitest": "^0.32.0"
+	}
 }

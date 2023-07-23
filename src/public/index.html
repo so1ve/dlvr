@@ -1,65 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-US">
-  <head>
-    <title>DLVR</title>
-    <link
-      rel="stylesheet"
-      href="/gh/BigCoke233/textretty.css@2.0.0/textretty.css?min"
-    />
-    <style>
-      .main {
-        max-width: 700px;
-        padding: 6px;
-        margin: 0 auto;
-      }
-      .dlvr-title {
-        text-align: center;
-      }
-    </style>
-  </head>
-  <body>
-    <article class="textretty main">
-      <h1 class="dlvr-title">DeLiVeR</h1>
-      <h2>NPM</h2>
-      <p>
-        回源
-        <code>https://cdn.jsdelivr.net/npm</code>
-        。
-      </p>
-      <pre>
+	<head>
+		<title>DLVR</title>
+		<link
+			rel="stylesheet"
+			href="/gh/BigCoke233/textretty.css@2.0.0/textretty.css?min"
+		/>
+		<style>
+			.main {
+				max-width: 700px;
+				padding: 6px;
+				margin: 0 auto;
+			}
+			.dlvr-title {
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<article class="textretty main">
+			<h1 class="dlvr-title">DeLiVeR</h1>
+			<h2>NPM</h2>
+			<p>
+				回源
+				<code>https://cdn.jsdelivr.net/npm</code>
+				。
+			</p>
+			<pre>
 <code>/npm/[PACKAGE]@[VERSION]/[PATH]</code>
 </pre>
-      <h2>GitHub</h2>
-      <p>
-        回源
-        <code>https://raw.githubusercontent.com</code>
-        。
-      </p>
-      <pre>
+			<h2>GitHub</h2>
+			<p>
+				回源
+				<code>https://raw.githubusercontent.com</code>
+				。
+			</p>
+			<pre>
 <code>/gh/[USER]/[REPO]@[BRANCH]/[PATH]</code>
 </pre>
-      <h2>可选参数</h2>
-      <ul>
-        <li>
-          <code>min</code>
-          &nbsp;/&nbsp;
-          <code>minify</code>
-          ：是否压缩（目前支持JS、JSON、CSS） 例如：
-          <pre>
+			<h2>可选参数</h2>
+			<ul>
+				<li>
+					<code>min</code>
+					&nbsp;/&nbsp;
+					<code>minify</code>
+					：是否压缩（目前支持JS、JSON、CSS） 例如：
+					<pre>
 <code>/npm/nprogress/nprogress.css?min
 /npm/nprogress/nprogress.css?minify</code>
 </pre>
-          出于稳定性考虑，我们不使用JSDelivr风格的.min.ext压缩方式。倘若作者在日后加上了对应的min文件，这将有可能导致原本的文件（经过DLVR压缩后）和作者添加的文件内容不匹配。
-        </li>
-      </ul>
-      Powered by
-      <a
-        target="_blank"
-        rel="noopener noreferer"
-        href="https://github.com/so1ve/dlvr"
-      >
-        DLVR
-      </a>
-    </article>
-  </body>
+					出于稳定性考虑，我们不使用JSDelivr风格的.min.ext压缩方式。倘若作者在日后加上了对应的min文件，这将有可能导致原本的文件（经过DLVR压缩后）和作者添加的文件内容不匹配。
+				</li>
+			</ul>
+			Powered by
+			<a
+				target="_blank"
+				rel="noopener noreferer"
+				href="https://github.com/so1ve/dlvr"
+			>
+				DLVR
+			</a>
+		</article>
+	</body>
 </html>

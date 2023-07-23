@@ -1,3 +1,6 @@
 {
-  "extends": "@so1ve"
+	"extends": "@so1ve",
+	"rules": {
+		"@eslint-community/eslint-comments/no-unlimited-disable": "off"
+	}
 }
