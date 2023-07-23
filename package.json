@@ -18,7 +18,8 @@
   "scripts": {
     "build": "nitropack build",
     "dev": "nitropack dev",
-    "postinstall": "nitropack prepare && nr sync-deps",
+    "prepare": "nitropack prepare",
+    "postinstall": "nr prepare && nr sync-deps",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "sync-deps": "tsx scripts/sync-deps.ts",
