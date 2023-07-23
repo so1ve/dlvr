@@ -28,10 +28,10 @@ async function generateDepsFile(
 	);
 	const stringVersions = Object.entries(versions)
 		.map(([dep, version]) => `${shouldQuote ? `"${dep}"` : dep}: "${version}",`)
-		.join("\n  ");
+		.join("\n	");
 	const stringExternals = externals
 		.map((external) => `"${external}", // Avoid bad format`)
-		.join("\n  ");
+		.join("\n	");
 	const template = `export const versions = {
   ${stringVersions}
 };
