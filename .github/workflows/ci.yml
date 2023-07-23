@@ -28,7 +28,9 @@ jobs:
         run: npm i -g @antfu/ni
 
       - name: Install
-        run: nci
+        run: |
+          nci
+          ls
 
       - name: Lint
         run: nr lint
