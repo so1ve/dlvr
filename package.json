@@ -46,6 +46,7 @@
 		"eslint": "^8.45.0",
 		"nitropack": "^2.4.1",
 		"prettier": "^3.0.0",
+		"tsx": "^3.12.7",
 		"typescript": "^5.0.4",
 		"unplugin-auto-import": "^0.16.2",
 		"vite": "^4.3.8",
