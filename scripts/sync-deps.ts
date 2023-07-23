@@ -33,11 +33,11 @@ async function generateDepsFile(
 		.map((external) => `"${external}", // Avoid bad format`)
 		.join("\n	");
 	const template = `export const versions = {
-  ${stringVersions}
+	${stringVersions}
 };
 
 export const externals = [
-  ${stringExternals}
+	${stringExternals}
 ];
 `;
 	await fsp.writeFile("src/deps.ts", template);
