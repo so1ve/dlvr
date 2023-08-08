@@ -8,14 +8,14 @@ describe("utils", () => {
   kons.log(foo)`;
 
 			await expect(minifyString(js, "js")).resolves.toMatchInlineSnapshot(`
-        "/**
-         * This JavaScript file is minified by DLVR using esbuild@0.18.5.
-         * DLVR: https://github.com/so1ve/dlvr
-         * esbuild: https://esbuild.github.io
-         */
-        import*as o from\\"kons\\";const r=\\"bar\\";o.log(r);
-        "
-      `);
+				"/**
+				 * This JavaScript file is minified by DLVR using esbuild@0.19.0.
+				 * DLVR: https://github.com/so1ve/dlvr
+				 * esbuild: https://esbuild.github.io
+				 */
+				import*as o from\\"kons\\";const r=\\"bar\\";o.log(r);
+				"
+			`);
 		});
 
 		it("css", async () => {
@@ -24,14 +24,14 @@ describe("utils", () => {
 }`;
 
 			await expect(minifyString(css, "css")).resolves.toMatchInlineSnapshot(`
-        "/**
-         * This CSS file is minified by DLVR using esbuild@0.18.5.
-         * DLVR: https://github.com/so1ve/dlvr
-         * esbuild: https://esbuild.github.io
-         */
-        div.foo *{display:block}
-        "
-      `);
+				"/**
+				 * This CSS file is minified by DLVR using esbuild@0.19.0.
+				 * DLVR: https://github.com/so1ve/dlvr
+				 * esbuild: https://esbuild.github.io
+				 */
+				div.foo *{display:block}
+				"
+			`);
 		});
 
 		it("json", async () => {
