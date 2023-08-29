@@ -10,6 +10,7 @@ const minifierMap = {
 	css: CSSMinifier,
 	json: JSONMinifier,
 	html: HTMLMinifier,
+	htm: HTMLMinifier,
 };
 
 export const SUPPORTED_MINIFY_EXTENSIONS = Object.keys(minifierMap);
