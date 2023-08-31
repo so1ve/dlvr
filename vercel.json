@@ -10,6 +10,18 @@
       "headers": {
         "Location": "https://github.com/:username/:repo/releases/downloads/:file"
       }
+    },
+    {
+      "src": "/",
+      "status": 200
+    },
+    {
+      "src": "/npm/*",
+      "status": 200
+    },
+    {
+      "src": "/gh/*",
+      "status": 200
     }
   ]
 }
