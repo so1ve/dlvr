@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-US">
 	<head>
-		<title>DLVR</title>
+		<title>Usage</title>
 		<link
 			rel="stylesheet"
 			href="/gh/BigCoke233/textretty.css@2.0.0/textretty.css?min"
@@ -12,31 +12,45 @@
 				padding: 6px;
 				margin: 0 auto;
 			}
+      .colorful-text {
+        background-image: linear-gradient(to right,var(--tw-gradient-stops));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        --tw-gradient-from: #4f46e5;
+        --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to);
+        --tw-gradient-to: #e11d48;
+        font-weight: bold;
+        color: transparent!important;
+      }
 			.dlvr-title {
 				text-align: center;
 			}
+      .textretty {
+        cursor: default;
+        font-family: auto!important;
+}
 		</style>
 	</head>
 	<body>
 		<article class="textretty main">
-			<h1 class="dlvr-title">DeLiVeR</h1>
-			<h2>NPM</h2>
+			<h2 class="dlvr-title colorful-text"><a class="colorful-text">DeLiVeR</a></h2>
+			<h2>npm</h2>
 			<p>
 				回源
-				<code>https://unpkg.com</code>
-				。
+        &nbsp;
+				<code>https://cdn.jsdelivr.net/npm/</code>
 			</p>
 			<pre>
-<code>/npm/[PACKAGE]@[VERSION]/[PATH]</code>
+<code style="font-weight: bold;">/npm/[PACKAGE]@[VERSION]/[PATH]</code>
 </pre>
 			<h2>GitHub</h2>
 			<p>
 				回源
+        &nbsp;
 				<code>https://raw.githubusercontent.com</code>
-				。
 			</p>
 			<pre>
-<code>/gh/[USER]/[REPO]@[BRANCH]/[PATH]</code>
+<code style="font-weight: bold;">/gh/[USER]/[REPO]@[BRANCH]/[PATH]</code>
 </pre>
 			<h2>可选参数</h2>
 			<ul>
@@ -44,22 +58,31 @@
 					<code>min</code>
 					&nbsp;/&nbsp;
 					<code>minify</code>
-					：是否压缩（目前支持JS、JSON、CSS） 例如：
-					<pre>
-<code>/npm/nprogress/nprogress.css?min
-/npm/nprogress/nprogress.css?minify</code>
-</pre>
-					出于稳定性考虑，我们不使用JSDelivr风格的.min.ext压缩方式。倘若作者在日后加上了对应的min文件，这将有可能导致原本的文件（经过DLVR压缩后）和作者添加的文件内容不匹配。
+					：是否压缩（目前支持 JavaScript、CSS、JSON）
+          <br />
+          <br />
+          传入参数&nbsp;<code>?min</code>&nbsp;或&nbsp;<code>?minify</code>&nbsp;即可
+          <br />
+          <br />
+					出于稳定性考虑，我们不使用&nbsp;<code>Jsdelivr</code>&nbsp;风格的&nbsp;<code>.min.ex</code>&nbsp;压缩方式。倘若作者在日后加上了对应的&nbsp;<code>min</code>&nbsp;文件，这将有可能导致压缩的文件和作者添加的文件内容不匹配。
 				</li>
 			</ul>
-			Powered by
-			<a
-				target="_blank"
-				rel="noopener noreferer"
-				href="https://github.com/so1ve/dlvr"
+			<span>由</span>
+      <a
+        class="colorful-text"
+        id="dlvr-link"
 			>
 				DLVR
-			</a>
+    </a>
+      <span>驱动</span>
 		</article>
+    <script>
+      const reflink = document.getElementById("dlvr-link");
+
+        reflink.addEventListener("click", function(e) {
+          e.preventDefault();
+          window.open("https://github.com/so1ve/dlvr");
+      });
+    </script>
 	</body>
 </html>
