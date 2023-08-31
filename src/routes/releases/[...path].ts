@@ -3,7 +3,9 @@ import { useEffect } from 'react';
 export default function Downloads() {
   useEffect(() => {
     const path = window.location.pathname.replace('/releases/', '');
-    window.location.href = `https://your-vercel-project-url/${path}`;
+    const redirectUrl = `https://dlvr-teal.vercel.app/${path}`;
+
+    window.location.href = redirectUrl;
   }, []);
 
   return null;
