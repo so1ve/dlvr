@@ -2,26 +2,5 @@
   "version": 2,
 	"github": {
 		"silent": true
-	},
-  "routes": [
-    {
-      "src": "/releases/:username/:repo/releases/downloads/:file",
-      "status": 302,
-      "headers": {
-        "Location": "https://github.com/:username/:repo/releases/downloads/:file"
-      }
-    },
-    {
-      "src": "/",
-      "status": 200
-    },
-    {
-      "src": "/npm/*",
-      "status": 200
-    },
-    {
-      "src": "/gh/*",
-      "status": 200
-    }
-  ]
+	}
 }
