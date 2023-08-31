@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+    var urlParams = new URLSearchParams(window.location.search);
+    var extractedParam = urlParams.get('url');
+
+    var redirectUrl = 'https://salmon.deno.dev/' + extractedParam;
+
+    window.location.href = redirectUrl;
+
+    </script>
+  </head>
+</html>

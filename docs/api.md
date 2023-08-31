@@ -10,6 +10,10 @@
 
 `USER` is the name of the user or organization (required), `REPO` is the name of the repository (required), `BRANCH` is the branch of the repository (default to `master`), and `PATH` is the path to the file in the repository.
 
+- `/releases?url=[URL]` - RELEASE FILES
+
+`URL` is the GitHub link to RELEASE (required)
+
 ## Features
 
 - Minify
