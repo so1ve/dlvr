@@ -9,7 +9,7 @@ describe("utils", () => {
 
 			await expect(minifyString(js, "js")).resolves.toMatchInlineSnapshot(`
 				"/**
-				 * This JavaScript file is minified by DLVR using esbuild@0.19.0.
+				 * This JavaScript file is minified by DLVR using esbuild@0.20.0.
 				 * DLVR: https://github.com/so1ve/dlvr
 				 * esbuild: https://esbuild.github.io
 				 */
@@ -25,7 +25,7 @@ describe("utils", () => {
 
 			await expect(minifyString(css, "css")).resolves.toMatchInlineSnapshot(`
 				"/**
-				 * This CSS file is minified by DLVR using esbuild@0.19.0.
+				 * This CSS file is minified by DLVR using esbuild@0.20.0.
 				 * DLVR: https://github.com/so1ve/dlvr
 				 * esbuild: https://esbuild.github.io
 				 */
