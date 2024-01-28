@@ -1,5 +1,5 @@
 export const versions = {
-	"esbuild": "0.19.0",
+	"esbuild": "0.20.0",
 	"html-minifier-terser": "7.2.0",
 };
 
